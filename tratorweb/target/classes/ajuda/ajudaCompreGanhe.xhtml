@@ -1,0 +1,40 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+	<ui:define name="titulo">Ajuda : Compre e Ganhe</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuAjuda.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="ajuda">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Ajuda" />
+					<span>Compre e Ganhe</span>
+				</div>
+
+				<h2>Compre e Ganhe</h2>
+
+				<p>
+				Os produtos cadastrados na campanha Compre e Ganhe possuem uma
+				pontuação diferente acumulada por caixa, ao juntar, o cliente poderá
+				trocar os pontos por um produto específico cadastrado na campanha
+				Compre e Ganhe sendo também essa troca por caixa.
+				</p>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

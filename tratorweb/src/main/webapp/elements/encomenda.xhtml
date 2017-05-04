@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<div id="encomenda" class="ui-grid-col-12">
+	<div>
+		<h2>Não encontrou o que procurava?</h2>
+		<span>Solicite abaixo sua encomenda</span>
+	</div>
+
+	<h:form id="formSolicita" class="ui-grid-col-12">
+		<div>
+			<p:outputLabel for="nomeProd" value="Produto:"
+				styleClass="fontSize13" />
+			<p:inputText id="nomeProd"
+				value="#{encomendaNovoProdutoBean.encomendaNovoProduto.nomeProduto}"
+				styleClass="block" />
+		</div>
+
+		<div>
+			<p:outputLabel for="qtdProd" value="Quantidade de Caixas:"
+				styleClass="fontSize13" />
+			<p:inputMask mask="9?99999"
+				value="#{encomendaNovoProdutoBean.encomendaNovoProduto.qtdProduto}"
+				id="qtdProd" styleClass="block" />
+		</div>
+
+		<div>
+			<p:outputLabel value="Faixa de Preço por unidade:"
+				style="text-align: center; font-size: 13px;" />
+			<br />
+			<p:outputLabel value="*Ex.: Decis Entre R$39.00 e R$41.00"
+				style="text-align: center; font-size: 10px; color: #F00;" />
+
+			<div>
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="precoInicio" value="Entre" styleClass="entre" />
+					</div>
+					<div class="ui-grid-col-6">
+						<pe:inputNumber id="precoInicio" decimalSeparator="," thousandSeparator="."
+								value="#{encomendaNovoProdutoBean.encomendaNovoProduto.precoInicio}"/>
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="precoFinal" value="e" styleClass="entre" />
+					</div>
+					<div class="ui-grid-col-6">
+						<pe:inputNumber id="precoFinal" decimalSeparator="," thousandSeparator="."
+								value="#{encomendaNovoProdutoBean.encomendaNovoProduto.precoFinal}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<p:outputLabel for="obsProd" value="Observações: "
+				styleClass="fontSize13" />
+			<p:inputTextarea id="obsProd"
+				value="#{encomendaNovoProdutoBean.encomendaNovoProduto.msgObservacao}"
+				styleClass="block" rows="6" counter="display" maxlength="250"
+				counterTemplate="{0} caracteres restantes." />
+			<h:outputText id="display" style="font-size: 10px;" />
+		</div>
+
+		<br />
+
+		<div class="boxAlignCenter" style="padding: 0 0 3px 0">
+			<p:commandButton update="@form :formdttble:dtEncomendaProduto"
+				action="#{encomendaNovoProdutoBean.adicionarNovoProduto()}"
+				styleClass="botaoAzul" value="Adicionar Produtos" />
+		</div>
+
+		<p:messages autoUpdate="false" closable="true" id="msgNovoProd"	style="clear: both;" />
+	</h:form>
+
+
+	<h:form id="formdttble"	style="float: left; clear: both;  width: 100%; overflow: hidden;">
+
+		<p:dataTable id="dtEncomendaProduto"
+			value="#{encomendaNovoProdutoBean.listEncomendaNovoProdutos}"
+			var="produto" rows="50" paginator="false"
+			emptyMessage="Nenhum item cadastrado."
+			style="border: 0; background: none;">
+			<p:column headerText="Produtos"
+				style="border: 0; background: none; text-align: left; font-size: 14px;">
+
+
+				<p:commandButton update="@form :formSolicita:msgNovoProd"
+					action="#{encomendaNovoProdutoBean.removerNovoProduto(produto)}"
+					class="btn" title="Remover produto" icon="ui-icon-trash"
+					style="border: 0; background: none; padding: 0;" value="">
+					<p:confirm header="Excluir Produto" message="Você tem certeza?"
+						icon="ui-icon-alert" />
+				</p:commandButton>
+				<h:outputText value=" #{produto.nomeProduto}" />
+
+
+			</p:column>
+		</p:dataTable>
+
+		<br />
+
+		<p:confirmDialog global="true" showEffect="fade">
+			<p:commandButton value="Sim" type="button"
+				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button"
+				styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+
+	</h:form>
+
+	<p:link outcome="/encomenda/encomendaSolicitacao.xhtml"	value="Visualizar Encomenda" styleClass="blue encomendaLink" />
+</div>
+
+</html>

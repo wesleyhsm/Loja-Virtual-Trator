@@ -1,0 +1,171 @@
+<ui:composition template="index.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	<ui:define name="headLogin">
+		<style>
+			.textPadding {
+				padding: 3px;
+			}
+		</style>
+	</ui:define>
+	<ui:define name="conteudoIndex">
+
+		<div class="boxBoth container">
+
+			<!-- S FORM BUSCAR CEP -->
+			<h:form id="buscaCep">
+				<div class="ui-grid-col-12">
+					<h2>Cadastrar</h2>
+					<p:messages autoUpdate="false" closable="true" id="msgcadastro" />
+				</div>
+
+				<div class="ui-grid-col-6">
+					<p:outputLabel for="cep" value="CEP" class="labelVertical" />
+					<p:inputMask id="cep" mask="99999-999" value="#{pessoaBean.endereco.nmCep}" class="textVertical textPadding" required="true">
+						<p:ajax event="change" process="@this" listener="#{pessoaBean.encontraCEP()}" 
+						update=":precadastro:endereco :precadastro:bairro :precadastro:cidade :precadastro:estado"  />
+					</p:inputMask>
+				</div>
+			</h:form>
+			<!-- E FORM BUSCAR CEP -->
+
+			<!-- S FORM PRÉ CADASTRO -->
+			<h:form id="precadastro">
+				<div class="ui-grid-col-6">
+					<p:outputLabel for="nomecliente"
+						value="Nome Produtor Rural / Razão Social" class="labelVertical" />
+					<p:inputText id="nomecliente" maxlength="60" value="#{pessoaBean.cliente.nmRazaoSocial}"
+						class="textVertical textPadding" required="true" requiredMessage="Nome Produtor Rural / Razão Social: Não pode estar em branco." />
+				</div>
+				<div class="ui-grid-col-12">
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="nomecontato" value="Nome Contato" class="labelVertical" />
+						<p:inputText id="nomecontato" maxlength="60" value="#{pessoaBean.cliente.nmContato}" class="textVertical textPadding" required="true" />
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="tipocnpjcpf" value="CNPJ / CPF" class="labelVertical" />
+						<p:inputText id="tipocnpjcpf" class="cpfmask" maxlength="18" value="#{pessoaBean.cliente.nmCnpjCpf}" required="true" />
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="endereco" value="Endereço" class="labelVertical" />
+						<p:inputText id="endereco" maxlength="60" value="#{pessoaBean.endereco.nmRua}" class="textVertical textPadding" required="true" />
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="numero" value="Número" class="labelVertical" />
+						<p:inputText id="numero" maxlength="15" value="#{pessoaBean.endereco.nmNumero}"	class="textVertical textPadding numbermask" required="true" />
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="complemento" value="Complemento" class="labelVertical" />
+						<p:inputText id="complemento" maxlength="60" value="#{pessoaBean.endereco.nmComplemento}" class="textVertical textPadding" />
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="bairro" value="Bairro" class="labelVertical" />
+						<p:inputText id="bairro" maxlength="60"	value="#{pessoaBean.endereco.nmBairro}" class="textVertical textPadding" required="true" />
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="cidade" value="Cidade" class="labelVertical" />
+						<p:inputText id="cidade" maxlength="60" value="#{pessoaBean.endereco.nmCidade}" class="textVertical textPadding" required="true" />
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="estado" value="Estado" class="labelVertical" />
+						<p:selectOneMenu id="estado" value="#{pessoaBean.estado.idEstado}" required="true"	style="padding: 3px;"
+							requiredMessage="Estado: Não pode estar em branco.">
+							<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+							<f:selectItems value="#{pessoaBean.carregaListEstado()}" var="est" itemLabel="#{est.sgEstado}" itemValue="#{est.idEstado}"/>
+						</p:selectOneMenu>
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="tipotelefone" value="Tipo do Telefone" class="labelVertical" />
+						<p:selectOneMenu id="tipotelefone" required="true" requiredMessage="Tipo do Telefone: Não pode estar em branco."
+							value="#{pessoaBean.telefone.nrTipo}" class="textVertical textPadding">
+							<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+							<f:selectItem itemLabel="Comercial" itemValue="1" />
+							<f:selectItem itemLabel="Residencial" itemValue="2" />
+							<f:selectItem itemLabel="Celular" itemValue="3" />
+						</p:selectOneMenu>
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="telefone" value="Telefone" class="labelVertical"/>
+						<p:inputText id="telefone" value="#{pessoaBean.telefone.nmTelefone}"
+							styleClass="textVertical textPadding phonemask" required="true" />
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="email" value="E-mail" class="labelVertical" />
+						<p:inputText id="email" maxlength="60" value="#{pessoaBean.email.nmEmail}" class="textVertical textPadding" required="true" />
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="porte" value="Porte" class="labelVertical" />
+						<p:selectOneMenu id="porte" value="#{pessoaBean.cliente.nrPorte}"
+							class="textVertical textPadding" rendered="true" requiredMessage="Porte: Não pode estar em branco.">
+							<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+							<f:selectItem itemLabel="Pequena" itemValue="1" />
+							<f:selectItem itemLabel="Media" itemValue="2" />
+							<f:selectItem itemLabel="Grande" itemValue="3" />
+						</p:selectOneMenu>
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6">
+						<p:outputLabel for="categoria" value="Categoria" class="labelVertical"/>
+						<p:selectOneMenu id="categoria" required="true" requiredMessage="Categoria: Não pode estar em branco."
+							value="#{pessoaBean.categoriaCliente.idCategoriaCliente}" class="textVertical textPadding">
+							<f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+							<f:selectItem itemLabel="Agricultor" itemValue="35" />							
+							<f:selectItem itemLabel="Revenda" itemValue="36" />
+							<f:selectItem itemLabel="Cooperativa" itemValue="37" />
+							<f:selectItem itemLabel="Orgão Público" itemValue="56" />
+							<f:selectItem itemLabel="Floricultura" itemValue="92" />
+							<f:selectItem itemLabel="Fornecedor" itemValue="111" />
+							<f:selectItem itemLabel="Empresa Agricola" itemValue="217" />
+						</p:selectOneMenu>
+					</div>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-6" style="margin-top: 30px;">
+						<span class="ui-outputlabel-rfi">*</span> Campos Obrigatórios
+					</div>
+
+					<div class="ui-grid-col-6">
+						<p:commandButton update=":buscaCep:msgcadastro @form"
+							actionListener="#{pessoaBean.salvarCliente()}" class="botaoAzul"
+							value="ENVIAR" style="display: inline;" />
+					</div>
+				</div>
+
+			</h:form>
+			<!-- E FORM PRÉ CADASTRO -->
+
+		</div>
+	</ui:define>
+</ui:composition>
+
+
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="mydb" transaction-type="JTA">
+        <jta-data-source>java:/jboss/jdbc/mydb</jta-data-source>
+        	        		
+        <class>com.agrofauna.tratorweb.model.CategoriaCliente</class>
+        <class>com.agrofauna.tratorweb.model.CategoriaEmail</class>
+        <class>com.agrofauna.tratorweb.model.Cliente</class>
+        <class>com.agrofauna.tratorweb.model.Email</class>
+        <class>com.agrofauna.tratorweb.model.Endereco</class>
+        <class>com.agrofauna.tratorweb.model.Estado</class>
+        <class>com.agrofauna.tratorweb.model.Funcionario</class>
+        <class>com.agrofauna.tratorweb.model.HorarioAtendimento</class>
+        <class>com.agrofauna.tratorweb.model.Login</class>
+        <class>com.agrofauna.tratorweb.model.Pais</class>
+        <class>com.agrofauna.tratorweb.model.Pessoa</class>
+        <class>com.agrofauna.tratorweb.model.Suframa</class>
+        <class>com.agrofauna.tratorweb.model.Telefone</class>
+        <class>com.agrofauna.tratorweb.model.Contato</class>
+        <class>com.agrofauna.tratorweb.model.Campanha</class>
+        <class>com.agrofauna.tratorweb.model.CampanhaCliente</class>
+        <class>com.agrofauna.tratorweb.model.CampanhaImagem</class>
+        <class>com.agrofauna.tratorweb.model.CampanhaProduto</class>
+        <class>com.agrofauna.tratorweb.model.Fabricante</class>
+        <class>com.agrofauna.tratorweb.model.Produto</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoImagem</class>
+        <class>com.agrofauna.tratorweb.model.GrupoQuimico</class>
+        <class>com.agrofauna.tratorweb.model.PrincipioAtivo</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoDadosTecnico</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoTipo</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoTipoProduto</class>
+        <class>com.agrofauna.tratorweb.model.BannerPosicao</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoBanner</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoLote</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoEstoque</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoEstoqueTipo</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoArmazenamento</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoEspecieMedida</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoMedida</class>
+        <class>com.agrofauna.tratorweb.model.ProdutoUnidade</class>
+        <class>com.agrofauna.tratorweb.model.Cotacao</class>
+        <class>com.agrofauna.tratorweb.model.CotacaoStatus</class>
+        <class>com.agrofauna.tratorweb.model.CotacaoProduto</class>
+        		
+		<properties>						      		
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		</properties>
+
+	</persistence-unit>
+</persistence>

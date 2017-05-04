@@ -1,0 +1,113 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Forma de Pagamento</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuLeft" class="ui-grid-col-2">
+
+			<ui:include src="../elements/encomenda.xhtml" />
+
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio pagamento" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial"/>
+					<p:commandLink value="Finalizar Compra"/>
+					<span>Forma de Pagamento</span>
+				</div>
+
+				<h:form id="frmPagamento">
+					<fieldset class="fildset">
+						<legend>Forma de Pagamento</legend>
+						<div style="width: 85%;">
+							<p:outputPanel id="customPanel" style="margin: 0 0 0 30px; ">
+								<p:selectOneRadio
+									requiredMessage="Selecione a forma de Pagamento."
+									required="true" id="customRadio"
+									value="#{formaPagamentoBean.formaPagamento.idFormaPagamento}"
+									layout="custom">
+									<f:selectItem itemLabel="boleto" itemValue="1" />
+									<f:selectItem itemLabel="deposito" itemValue="2" />
+									<f:selectItem itemLabel="loja" itemValue="5" />
+									<f:selectItem itemLabel="cheque" itemValue="4" />
+									<f:selectItem itemLabel="prazo" itemValue="6" />
+								</p:selectOneRadio>
+
+								<h:panelGrid columns="2" cellpadding="5">
+									<p:radioButton id="opt1" for="customRadio" itemIndex="0" />
+									<h:outputLabel for="opt1" value="Boleto Bancário" class="bold"/>
+
+									<h:inputHidden />
+									<h:outputLabel styleClass="fontSize13"
+										value="O boleto Banco do Brasil é gerado e enviado via e-mail para quitação das compras com pagamento antecipado. Para agilizar o faturamento da mercadoria, favor nos enviar o comprovante de pagamento, caso contrário ele só chegará no próximo dia útil." />
+
+									<p:radioButton id="opt2" for="customRadio" itemIndex="1" />
+									<h:outputLabel for="opt2" value="Depósito em Conta" class="bold"/>
+
+									<h:inputHidden />
+									<h:outputLabel styleClass="fontSize13"
+										value="Anote nossos dados bancários: Banco do Brasil Agência: 6920-5 Conta Corrente: 25625-0" />
+
+									<p:radioButton id="opt3" for="customRadio" itemIndex="2" />
+									<h:outputLabel for="opt3" value="Pagamento na loja" class="bold"/>
+
+									<h:inputHidden />
+									<h:outputLabel styleClass="fontSize13">Rua Coutinho Cavalcante, 1171<br />
+	                                    São José do Rio Preto - São Paulo<br />
+	                                    CEP:15054-300
+	                                </h:outputLabel>
+
+									<p:radioButton id="opt4" for="customRadio" itemIndex="3" />
+									<h:outputLabel for="opt4" value="Cheque" class="bold"/>
+
+									<h:inputHidden />
+									<h:outputLabel styleClass="fontSize13"
+										value="Cheque via correio: a mercadoria será liberada somente após o cheque ser escaneado e enviado em nosso e-mail, juntamente com o comprovante de postagem dos correios." />
+
+
+									<p:radioButton id="opt5" for="customRadio" itemIndex="4" />
+									<h:outputLabel for="opt5" value="Prazo" class="bold"/>
+
+									<h:inputHidden />
+									<h:outputLabel styleClass="fontSize13"
+										value="Compras a prazo são sujeitas a acréscimos de juros de acordo com os procedimentos descritos via e-mail." />
+								</h:panelGrid>
+							</p:outputPanel>
+						</div>
+
+					</fieldset>
+
+					<div class="boxMargemPadrao boxBoth">
+						<p:commandButton ajax="false"
+							rendered="#{formaPagamentoBean.liberaBotaoBaixarPedido == false}"
+							update=":carrinho:boxcarrinho :frmPagamento"
+							action="#{formaPagamentoBean.finalizarPedido()}"
+							value="Finalizar Compra" class="blue right" />
+
+						<p:button
+							rendered="#{formaPagamentoBean.liberaBotaoBaixarPedido == false}"
+							outcome="/finalizacaoDeCompras/frete.xhtml" value="Voltar"
+							class="blue right" />
+
+						<p:button rendered="#{formaPagamentoBean.liberaBotaoBaixarPedido}"
+							outcome="/minhasCompras/minhasCompras.xhtml"
+							value="Voltar Minhas Compras" class="blue right" />
+						<br />
+					</div>
+					<p:messages autoUpdate="false" closable="true" style="width: 100%; margin: 30px 0 0 0;" />
+				</h:form>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

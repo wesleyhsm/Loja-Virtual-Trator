@@ -1,0 +1,35 @@
+<ui:composition template="index.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+	    <ui:define name="headLogin">
+	    	<style>
+	    		.textPadding{
+	    			padding: 3px;
+	    		}
+	    	</style>
+	    </ui:define>
+	    <ui:define name="conteudoIndex">
+    
+    
+    	<div class="boxBoth" style="width: 60%; margin: 0 auto;">
+    		<h:form id="contato">    			
+	    		<div class="linhaFloat" >
+		    		<p:outputLabel value="Pagina de Erro" class="fontAzul" style="font-size: 28px; font-weight: semibold;"/>
+					
+					<p:messages autoUpdate="false" closable="true" id="msgcontato" />
+		    	</div>    	
+	    		
+	    		<div class="linhaFloat">
+		    		<p:graphicImage url="#{request.contextPath}/../resources/img/error-404-trator-agro-fauna.jpg" style="width: 100%;"/>
+		    	</div>
+	    	</h:form>	
+    	</div>
+    	
+    	
+    </ui:define>
+</ui:composition>

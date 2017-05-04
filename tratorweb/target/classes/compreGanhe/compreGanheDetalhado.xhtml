@@ -1,0 +1,265 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
+	
+	<ui:define name="titulo">Compre e Ganhe : Detalhado</ui:define>
+
+	<ui:define name="conteudo">		
+		
+		<div id="menuLeft" class="ui-grid-col-2">
+
+			<h:form id="frmProduto">
+				<ul style="float: left;">
+					<li>
+						<div class="bar" style="background: #f6701f;"></div>
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml" value="Todos"/>
+					</li>
+
+					<li>
+						<div class="bar" style="background: #f6701f;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=acaricida" value="Acaricidas" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #f6701f;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=adjuvante" value="Adjuvantes" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #f6701f;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=espalhante" value="Espalhantes" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #f6701f;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=fungicida" value="Fungicidas" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #f6701f;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=herbicida" value="Herbicidas" />
+					</li>
+
+					<li><div class="bar" style="background: #f6701f;"></div>
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=inseticida" value="Inseticidas" />
+					</li>
+
+					<li><div class="bar" style="background: #2fb637;"></div>
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=epi" value="E.P.I's" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #2fb637;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=crescimento" value="Reguladores de Cresc." />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #00fff8;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=acessorio" value="Acessorios" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #00fff8;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=pulverizador" value="Pulverizadores" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #00fff8;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=especia" value="Fertilizantes Especiais" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #00fff8;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=foliare" value="Fertilizantes Foliares" />
+					</li>
+
+					<li>
+						<div class="bar" style="background: #00fff8;"></div> 
+						<p:link outcome="/compreGanhe/compreGanheProduto.xhtml?filtro=organico" value="Fertilizantes Orgânicos" />
+					</li>
+				</ul>
+			</h:form>
+
+			<ui:include src="../elements/encomenda.xhtml" />
+
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="pdtDetalhado">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Compre Ganhe" />
+					<span>Produto Detalhado</span>
+					<span style="float: right">Pontos: 
+						<h:outputText id="ptCompreGanhe" value="#{loginBean.clienteCompreGanhe.nrQuantidadePontos}">
+							<f:convertNumber type="currency" />
+						</h:outputText>
+					</span>
+				</div>
+
+				<h:form id="frmProdutoCompras">
+
+					<div class="ui-grid-col-4">
+						<div class="ui-grid-col-12">
+							<!-- consulta pega todas as imagens do produto-->
+							<p:galleria id="galeria" var="image"
+								value="#{compreGanheDetalhadoBean.listaProdutoImagems()}"
+								panelWidth="213" panelHeight="280" showCaption="true">
+								<p:graphicImage id="imageGaleria" class="zoom"
+									data-zoom-image="#{compreGanheDetalhadoBean.listaProdutoImagems()}"
+									title="#{image.nmProdutoImagem}"
+									style="width: 100%; height: auto;" url="#{image.nmLink}" />
+							</p:galleria>
+						</div>
+						<div class="ui-grid-col-12 cult">
+							<p:dataTable id="tableemail" var="cult"
+								value="#{compreGanheDetalhadoBean.todasCulturaProduto()}"
+								paginator="true" rows="5" paginatorPosition="bottom"
+								class="tabelaConvencional" style="width: 100%; margin: 10px 0 0"
+								emptyMessage="Nenhum item cadastrado.">
+								<p:column headerText="Culturas">
+									<h:outputText value="#{cult.cultura.nmCultura}" />
+								</p:column>
+							</p:dataTable>
+						</div>
+					</div>
+
+
+					<div class="ui-grid-col-8 info">
+						<!-- consulta pega todos os dados do produto -->
+						<p:dataList var="listProdutoDetalhado" rendered="#{loginBean.clienteCompreGanhe.snStatus == true}"
+							value="#{compreGanheDetalhadoBean.listaProdutoDetalhado()}" rows="1"
+							id="dataGridProduto" emptyMessage="nenhumm item encotrado.">
+
+							<h2>
+								<p:outputLabel id="nomeProduto"
+									value="#{listProdutoDetalhado.nmProduto}"
+									style="font-size: 31px;font-family:'Liberation Sans Narrow'" />
+							</h2>
+
+							<div class="ui-grid-col-12">
+								<p:outputLabel id="fabricante" value="Fabricante: "
+									class="title" />
+								<p:outputLabel id="nomeFabricante"
+									value="#{listProdutoDetalhado.fabricante.nmRazaoSocial}"
+									style="text-transform:uppercase;" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel id="quimico" value="Grupo Químico: "
+									class="title" />
+								<p:outputLabel id="nomeQuimico" style="text-transform:uppercase"
+									value="#{listProdutoDetalhado.produtoDadosTecnicos.grupoQuimico.nmGrupoQuimico}" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel id="ativo" value="Princípio Ativo: "
+									class="title" />
+								<p:outputLabel id="nmAtivo"
+									value="#{listProdutoDetalhado.produtoDadosTecnicos.principioAtivo.nmPrincipioAtivo}"
+									style="text-transform:uppercase" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel id="concetracao" value="Concentração: "
+									class="title" />
+								<p:outputLabel id="nmConcetracao"
+									value="#{listProdutoDetalhado.descConcentracaoQuimica}"
+									style="text-transform:uppercase" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel id="frete" value="Frete: " class="title" />
+								<p:outputLabel id="nmFrete" value=" CONSULTAR VENDEDORES" />
+							</div>
+
+							<div class="divisor"></div>
+
+							<div class="ui-grid-col-12">
+								<p:outputLabel value="Quantidade por caixa: " class="title" />
+								<p:outputLabel
+									value="#{listProdutoDetalhado.produtoArmazenamento.qtdEspecieMedida}" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel value="Peso Bruto: " class="title" />
+								<p:outputLabel
+									value="#{listProdutoDetalhado.produtoArmazenamento.nrPesoBruto}">
+									<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+								</p:outputLabel>
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel value="Valor Unitário Pontos: " />													
+								<p:outputLabel value="#{listProdutoDetalhado.nrPontoCompreGanhe}">
+									<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+								</p:outputLabel>
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel value="Valor da Caixa Pontos: "/>													
+								<p:outputLabel value="#{(listProdutoDetalhado.nrPontoCompreGanhe * listProdutoDetalhado.produtoArmazenamento.qtdEspecieMedida)}">
+									<f:convertNumber maxFractionDigits="0" minFractionDigits="0"/>
+								</p:outputLabel>
+							</div>
+
+							<div class="divisor"></div>
+
+							<div class="ui-grid-col-12 qtd">
+								<div class="ui-grid-col-12">
+									<p:outputLabel value="Quantidade de Caixas: " class="title" />
+								</div>
+								<div class="ui-grid-col-12">
+									<p:inputMask mask="9?99999"
+										value="#{compreGanheDetalhadoBean.qtdeComprada}" id="qtdeComprada"
+										style="border: 1px solid #a7a9ac; border-radius: 5px; padding: 5px;"
+										requiredMessage="Preencha o campo corretamente!"
+										required="true" />
+								</div>
+							</div>
+
+							<p:button value="VOLTAR" outcome="/compreGanhe/compreGanheProduto.xhtml"
+								class="botaoAzul iconBranco" />
+
+							<p:commandButton update=":carrinho:boxcarrinho msgproduto"
+								action="#{compreGanheDetalhadoBean.adicionarProdutoCarrinho()}"
+								value="ADICIONAR" class="botaoAzul iconBranco" />
+
+							<p:button outcome="/carrinhoDeCompras/carrinhoDeCompras.xhtml"
+								value="FINALIZAR" class="botaoAzul iconBranco" style="margin: 0; width: 34%;"/>
+
+							<p:messages autoUpdate="true" closable="false" id="msgproduto" />
+						</p:dataList>
+					</div>
+				</h:form>
+
+
+<!-- sugestão -->
+				<div class="ui-grid-col-12 sugestao">
+					<h2>Sugestões</h2>
+					<p>Similares <span>(Mesmo princípio ativo)</span></p>
+					
+					<p:dataGrid var="item" value="#{compreGanheDetalhadoBean.model}"
+						style="width: 100%;"
+						lazy="true" columns="4" rows="4"
+						paginator="true" paginatorPosition="bottom" id="dataGridProduto"
+						emptyMessage="Nenhum produto encontrado.">
+						<div class="produtoSugestao">
+							<p:graphicImage	url="#{promocaoIndexBean.buscarImagemProduto(item)}" style="width: 100%;"/>
+							<h2>#{item.nmProduto}</h2>
+							<p>
+								<h:outputText value="#{item.nrPontoCompreGanhe}">  
+            						<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+            					</h:outputText>	
+            					pontos         
+							</p>
+							<p:link outcome="/compreGanhe/compreGanheDetalhado.xhtml?id=#{item.idProduto}" value="DETALHES" />
+						</div>
+					</p:dataGrid>
+				</div>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

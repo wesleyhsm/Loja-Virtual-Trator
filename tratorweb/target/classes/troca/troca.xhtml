@@ -1,0 +1,128 @@
+<ui:composition template="../produtos/produtoindex.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <ui:define name="conteudo">
+    	<h:form id="frmProduto">
+	        <div class="esquerda">
+	            <div class="menuNavVertical">
+	                <ul>
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorOrange"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('acaricida')}" value="Acaricidas" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorOrange"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('adjuvantes')}" value="Adjuvantes" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorOrange"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('espalhantes')}" value="Espalhantes" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorOrange"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('fungicidas')}" value="Fungicidas" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorOrange"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('herbicidas')}" value="Herbicidas" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorOrange"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('inseticidas')}" value="Inseticidas" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">										
+							<div class="boxColorGreen"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('epi')}" value="E.P.I's" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorGreen"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('regulador de crescimento')}" value="Reguladores de Crescimento" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorBlue"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('acessorios')}" value="Acessorios" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorBlue"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('pulverizadores')}" value="Pulverizadores" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorBlue"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('especiais')}" value="Fertilizantes Especiais" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorBlue"></div>
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('foliares')}" value="Fertilizantes Foliares" />										
+						</li>
+	
+						<li class="menuAzul backgroundAzul bordaAzul">
+							<div class="boxColorBlue"></div> 
+							<p:commandLink update="@form" action="#{trocaBean.setTipoProduto('organicos')}" value="Fertilizantes Orgânicos" />
+						</li>
+					</ul>
+	            </div>
+	        </div>
+	        <div class="centro">
+	            <div style="width: 100%;">
+	                <div class="pesquisarBox">								
+						<p:inputText id="nomeProduto" class="pesquisaInput" value="#{trocaBean.filtroCampanhaProduto.descricao}" style="padding: 7px 0; width: 100%;" />
+							
+						<p:commandButton update="@form" class="botaoAzul" value="Pesquisar"/>		
+					</div>
+					
+					<div class="checkboxPesquisarBox" style="">
+						<div class="pesquisaComboBox" style="width: 85%;">
+							<p:selectOneMenu id="tipotelefone" style="font-size: 14px; width: 160px;" value="#{trocaBean.filtroCampanhaProduto.ordenacao}" class="textVertical textPadding">
+					            <f:selectItem itemLabel="Selecione Ordenação " itemValue="0" />
+					            <f:selectItem itemLabel="Menor Valor" itemValue="1" />
+					            <f:selectItem itemLabel="Maior Valor" itemValue="2" />
+					            <f:selectItem itemLabel="Crescente" itemValue="3" />
+					            <f:selectItem itemLabel="Decrescente" itemValue="4" />				            
+					        </p:selectOneMenu>
+					    </div>
+					</div>   
+	            </div>
+	
+	           	<div class="produtosBox tiraTudo" style="clear: both; padding: 5px 0 0;">
+	
+	                <p:dataGrid var="item" value="#{trocaBean.model}" lazy="true" columns="3" rows="12" 
+						paginator="true" paginatorPosition="both" id="dataGridProduto">
+															
+						<!-- aqui listagem produtos -->
+	                    <div class="produtos">
+	                        <p:graphicImage url="#{request.contextPath}/../resources/img/Mancozeb.png" style="width: 100px;"/>
+	                        <p>#{item.produto.nmProduto}</p>
+	                        <h2 class="fontAzul" style="vertical-align: top;">
+	                        	<h:outputText value="#{item.vlPrecoCampanha}">  
+	          						<f:convertNumber type="currency" />
+	          					</h:outputText>
+	                        </h2>
+	                        <p style="font-size: 12px;">ICMS incluso.</p>
+	
+	                        <p class="pagAnte" style="#{item.snPagamentoAntecipado eq 0? 'opacity: 0;' : ''}">Pagamento Antecipado</p>
+	                        <p style="font-size: 12px; color: #F00; #{item.snUltimasUnidades eq 0? 'opacity: 0;' : ''}">Últimas Unidades</p>
+	                        
+	                        <h:link class="botaoAzul" style="padding: 3px 5px; " outcome="/troca/trocaTrocar.xhtml?id=#{item.idProdutoCampanha}" value="COMPRAR"/>									    
+	                    </div>	                                                                
+					</p:dataGrid>
+	            </div>
+	        </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

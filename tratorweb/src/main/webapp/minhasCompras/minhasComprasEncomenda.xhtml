@@ -1,0 +1,88 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<ui:define name="titulo">Minhas Compras : Encomenda</ui:define>
+,
+	<ui:define name="conteudo">
+
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuCliente.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Área do Cliente" />
+					<p:commandLink value="Minhas Compras" />
+					<span>Encomendas</span>
+				</div>
+
+				<h2>Compras Encomenda</h2>
+
+				<h:form>
+					<p:dataTable var="pedido"
+						value="#{minhasComprasEncomendaBean.model}" lazy="true"
+						paginator="true" rows="20" paginatorPosition="both"
+						emptyMessage="Nenhum pedido encotrado." style="font-size: 13px;">
+						<p:column headerText="Nº Pedido" style="width: 60px; text-align: center; vertical-align: middle;">
+							<h:outputText value="#{pedido.idPedido}" />
+						</p:column>
+
+						<p:column headerText="Data de Compra" style="vertical-align: middle;">
+							<h:outputText value="#{pedido.dtCriacao}">
+								<f:convertDateTime locale="pt" pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Total" style="vertical-align: middle; font-size: 12px;">
+							<h:outputText
+								rendered="#{pedido.pedidoStatus.nmSiglaPedidoStatus eq 'T'}"
+								value="Entre " />
+							<h:outputText value="#{pedido.nrTotalPedido}">
+								<f:convertNumber type="currency" />
+							</h:outputText>
+							<br/>
+							<h:outputText
+								rendered="#{pedido.pedidoStatus.nmSiglaPedidoStatus eq 'T'}"
+								value=" e " />
+							<h:outputText
+								rendered="#{pedido.pedidoStatus.nmSiglaPedidoStatus eq 'T'}"
+								value="#{pedido.nrTotalPedido / pedido.nrTotalPrecoEncomenda}">
+								<f:convertNumber type="currency" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Status" style="vertical-align: middle;">
+							<h:outputText value="#{pedido.pedidoStatus.nmPedidoStatus}" />
+						</p:column>
+
+						<p:column headerText="Download" style="width: 60px; text-align: center;">
+							<p:commandButton
+								action="#{minhasComprasEncomendaBean.downloadPedido(pedido)}"
+								icon="ui-icon-document" title="Download do Pedido" ajax="false"
+								class="botaoAzul" />
+						</p:column>
+
+						<p:column headerText="Detalhado" style="width: 60px; text-align: center;">
+							<p:button
+								outcome="/minhasCompras/pedidoDetalhadoEncomenda.xhtml?id=#{pedido.idPedido}"
+								icon="ui-icon-folder-open" class="botaoAzul"
+								title="Pedido Detalhado" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

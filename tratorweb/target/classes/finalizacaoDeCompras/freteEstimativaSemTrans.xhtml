@@ -1,0 +1,49 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <ui:define name="titulo"></ui:define>
+    
+    <ui:define name="conteudo">
+        <div class="centro" style="width: 83%;">
+        	<div class="boxBoth">
+                <fieldset class="bordaAzul" style="margin: 0 auto; color: #808080;">
+                    <legend class="fontAzul">ESTIMATIVAS DE PREÇOS DE FRETES</legend>
+
+                    <p:outputLabel class="fontSize13" value="Não encontramos sua transportadora. Ajude-nos indicando uma!" />
+
+                        <div class="boxMargemPadrao">
+                            <p:outputLabel value="Adição de transportadoras" />
+                            
+                            <div class="boxMargemPadrao">
+                                <p:outputLabel value="Nome: "/>
+                                <p:inputText size="20"/>
+                            </div>
+
+                            <div class="boxMargemPadrao">
+                                <p:outputLabel value="Telefone:"/>
+                                <p:inputText size="20"/>
+                            </div>
+
+                            <div class="boxMargemPadrao">
+                                <p:outputLabel value="Contato:"/>
+                                <p:inputText size="20"/>
+                            </div>
+
+                            <div class="boxMargemPadrao">
+                                <p:outputLabel value="Observações:"/>
+                                <p:inputTextarea style="display: block; width: 95%; height: 145px;" />
+                            </div>
+
+                            <p:button outcome="/finalizacaoDeCompras/frete.xhtml" class="botaoAzul" style="float: right;" value="INSERIR" />
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

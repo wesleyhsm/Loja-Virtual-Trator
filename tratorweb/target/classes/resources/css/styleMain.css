@@ -1,0 +1,170 @@
+//============== INPUTS E TEXTS ==============
+
+    /*block é para ser usado em p:inputText ou em divs
+    Fazendo com que o input va para linha de baixo
+    de seu label ou fazendo com que aja a quebra de 
+    linha*/
+
+    .block{
+        display: block !important;
+    }
+    
+    
+    /*fontAzul é para ser usado em elementos de texto. 
+    Ele fara com que o elemento fique com a cor azul*/
+    .fontAzul{
+        color: #184e9b !important;
+    }
+    
+    
+    /*fontSize13 é para ser usado em elementos de texto. 
+    Ele fara com que o elemento fique com fonte definida
+    em 13px*/
+    .fontSize13{
+        font-size: 13px!important;
+    }
+    
+    /*fontNegrito é para ser usado em elementos de texto. 
+    Ele fara com que o elemento fique em negrito*/
+    .fontNegrito{
+        font-weight: bold;
+    }
+
+
+//============== BOX ==============
+    /*divBox50 é para ser usado em div. 
+    Ela ocupara 50% do espaço total e 
+    se usado em duas div's fara com que
+    fiquem lado a lado*/
+
+    .divBox50{
+        width: 50%;
+        float: left;
+    }
+    
+    /*boxAlignCenter é para ser usado em div 
+    e elementos em bloco. 
+    Esta classe é usado em um elemento pai
+    para alinhar elementos filhos inline*/
+
+    .boxAlignCenter{
+        text-align: center;
+    } 
+    
+    /*boxAlignLeft é para ser usado em div 
+    e elementos em bloco. 
+    Esta classe é usado em um elemento pai
+    para alinhar elementos filhos inline*/
+
+    .boxAlignLeft{
+        text-align: left;
+    } 
+    
+    /*boxMargemPadrao é para ser usado em div 
+    e elementos em bloco. 
+    Usado para colocar margem padrão entre texts do form*/
+    
+    .boxMargemPadrao{
+        margin: 10px 0;
+    }  
+    
+    
+    /*boxAlignRight é para ser usado em div 
+    e elementos em bloco. 
+    Esta classe é usado em um elemento pai
+    para alinhar elementos filhos inline*/
+
+    .boxAlignRight{
+        text-align: left;
+    } 
+    
+    
+    /*boxBoth é para ser usado em qualquer elemento. 
+    Ele fara com q o elemento va para a linha
+    de baixo caso aja flutuação*/
+    
+    .boxBoth{
+        clear: both;
+    }
+    
+    /*backgroundAzul é para ser usado em qualquer elemento. 
+    Ele fara com q o elemento tenha sua cor de fundo trocada
+    ou definida como azul*/
+    .backgroundAzul{
+        background-color: #184e9b !important;
+        color: #FFF;
+    }
+    
+    /*bordaAzul é para ser usado em qualquer lemento. 
+    Ele fara com que o elemento fique com a cor da borda azul*/
+    .bordaAzul{
+        border: 1px solid #14458C !important;
+    }
+    
+    /*botaoAzul é para ser usado no elemento button. 
+    Ele fara com que o botão fique azul com letras 
+    brancas e sem borda*/
+    .botaoAzul{
+        background: #14458C !important;
+        text-shadow: none !important;
+        color: #FFF !important;
+        font-size: 14px!important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none;
+    }
+    
+    /*botaoBranco é para ser usado no elemento button. 
+    Ele fara com que o botão fique branco com letras 
+    azuis e sem borda*/
+    .botaoBranco{
+        background: #FFF !important;
+        text-shadow: none !important;
+        color: #14458C !important;
+        font-size: 14px!important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none;
+    }
+    
+    /*floatLeft é para ser usado em qualquer elemento. 
+    fluara o elemento a esquerda*/
+    .floatLeft{
+        float: left;
+    }
+    
+    /*floatRight é para ser usado em qualquer elemento. 
+    fluara o elemento a direita*/
+    .floatRight{
+        float: right;
+    }
+    
+    
+    
+    .boxAlignCenter{
+        text-align: center;
+    }
+
+    .box{
+        display: inline-block;
+        text-align: center;
+    }
+
+    .colunaFloat{
+        display: inline-block;
+        margin: 0 5px;
+        text-align: left;
+    }
+
+    .linhaFloat{
+        clear: both;
+        margin: 5px 0;
+    }
+
+    .labelVertical{
+        font-size: 14px;
+    }
+
+    .textVertical{
+        display: block;
+    }    

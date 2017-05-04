@@ -1,0 +1,1044 @@
+input {
+	padding: 5px !important;
+}
+
+.ui-selectonemenu label.ui-selectonemenu-label {
+	padding: 8px 5px;
+	z-index: 99 !important;
+}
+
+.ui-selectonemenu .ui-selectonemenu-trigger  .ui-icon {
+	margin-top: 11px;
+}
+
+::-webkit-input-placeholder {
+	font-size: 12px;
+	margin-top: -3px;
+}
+
+:-moz-placeholder {
+	font-size: 12px;
+	margin-top: -3px;
+}
+
+::-moz-placeholder {
+	font-size: 12px;
+	margin-top: -3px;
+}
+
+:-ms-input-placeholder {
+	font-size: 12px;
+	margin-top: -3px;
+}
+
+/*
+* AZUL PADRÃO: #184e9b
+*/
+body {
+	margin-top: 15px;
+}
+
+/* default */
+a, .btn {
+	text-decoration: none;
+	transition: 0.8s;
+}
+
+a:hover, .btn:hover {
+	opacity: 0.8;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.container-fluid {
+	clear: both;
+	width: 100% !important;
+	float: left;
+}
+
+.container {
+	clear: both;
+	width: 992px !important;
+	margin: 0 auto;
+}
+
+/* header */
+header.container {
+	margin-bottom: 15px;
+}
+
+header .logo {
+	height: 83px;
+}
+
+header #trator {
+	float: right;
+	width: 165px;
+	border: 1px solid #E1E1E1;
+	border-radius: 3px;
+	padding: 5px;
+}
+
+header #trator img {
+	width: 45px;
+	clear: both;
+}
+
+header #trator p, header #trator form label {
+	color: #184e9b;
+	margin: 0 0 5px 5px;
+}
+
+header #frmLog label, header #frmLog a {
+	float: right;
+	color: #184e9b;
+	margin: 5px 0 15px 5px;
+	padding: 5px;
+}
+
+header #frmLog a {
+	border: 1px solid #E1E1E1;
+	border-radius: 3px;
+}
+
+nav {
+	clear: both;
+	background: #184e9b;
+	float: left;
+	width: 100%;
+}
+
+nav ul li {
+	position: relative;
+	float: left;
+}
+
+nav ul li a {
+	float: left;
+	padding: 15px 10px;
+	color: #FFF;
+}
+
+nav ul li a:hover {
+	background: #275daa;
+}
+
+/* meio */
+.meio {
+	width: calc(100% - 20px);
+	padding: 0 10px;
+}
+
+/* fixed menu nav */
+#fixedMenu {
+	display: none;
+	position: fixed;
+	top: 0;
+	background: #184e9b;
+	padding: 15px 0;
+	z-index: 9999;
+	width: 100%;
+	height: 34px;
+}
+
+#fixedMenu img {
+	height: 32px;
+}
+
+#fixedMenu button {
+	margin-left: 15px;
+}
+
+nav #pesquisa span input {
+	width: 100px;
+	margin-right: 5px;
+}
+/* banner topo */
+#banner {
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 0 15px 0;
+	height: 250px;
+}
+
+#banner #areaBanner {
+	z-index: 1 !important;
+}
+
+#banner #areaBanner .container {
+	position: relative;
+}
+
+#banner #areaBanner img.background {
+	width: 100%;
+	float: left;
+	height: 250px;
+	z-index: 1;
+}
+
+#banner #areaBanner p.price {
+	position: absolute;
+	z-index: 2;
+	color: #FFF;
+	left: 195px;
+	top: 150px;
+	font-weight: bold;
+	font-size: 54px;
+	color: #FF0;
+}
+
+#banner #areaBanner p.price span {
+	font-size: 26px;
+	color: #FFF;
+}
+
+#banner a {
+	cursor: pointer;
+	width: 40px;
+	height: 250px;
+	transition: 0.7s;
+	margin-top: -250px;
+	z-index: 999 !important;
+}
+
+/* dolar */
+#dolar {
+	color: #184e9b;
+}
+
+#dolar h2 {
+	font-size: 16px;
+	color: #184e9b;
+	font-weight: bold;
+	height: 30px;
+	padding-top: 10px;
+}
+
+#dolar span, #dolar p {
+	float: left;
+	width: 100%;
+	font-size: 12px;
+	margin: 3px;
+	text-align: center;
+	color: #184e9b;
+}
+
+#dolar p {
+	font-size: 16px !important;
+	font-weight: bold;
+}
+
+#dolar .divider {
+	float: left;
+	border-right: 1px solid #184e9b;
+	margin-bottom: 15px;
+}
+
+/* banners laterais */
+#sidebar .img, #sidebar .areabanner, #menuLeft .img, #menuLeft .areabanner
+	{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 400px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+#sidebar .areabanner img, #menuLeft .areabanner img {
+	float: left;
+	width: 100%;
+	z-index: 100;
+}
+
+#sidebar .price, #menuLeft .price {
+	float: left;
+	margin-top: -85px;
+	width: 100%;
+	z-index: 150;
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	font-size: 26px;
+}
+
+#sidebar .price span, #menuLeft .price span {
+	color: #FFF;
+	font-size: 25px;
+}
+
+#sidebar .areabanner a, #menuLeft .areabanner a {
+	float: left;
+	cursor: pointer;
+	position: relative;
+	width: 100%;
+	height: 360px;
+	float: left;
+	z-index: 900;
+}
+
+#sidebar .areabanner img, #menuLeft .areabanner img {
+	float: left;
+	cursor: pointer;
+	width: 100%;
+	height: 360px;
+}
+
+#sidebar a.left, #sidebar a.right, #menuLeft a.left, #menuLeft a.right {
+	height: auto;
+	position: relative;
+	cursor: pointer;
+	z-index: 500 !important;
+	transition: 0.7s;
+	padding: 0 10px;
+	margin-top: -100px;
+}
+
+#sidebar a.left img, #sidebar a.right img, #menuLeft a.left img,
+	#menuLeft a.right img {
+	width: 20px;
+}
+
+/* RODAPE */
+.fundo-rodape {
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	height: 220px !important;
+	color: white;
+	font-size: 8pt;
+	background-position: center;
+	background-repeat: no-repeat;
+	background: #2868C7;
+	text-align: right;
+	text-decoration: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	background: url(../img/rodape-trator-agro-fauna.jpg) center no-repeat
+		#1c72d5;
+	z-index: 500 !important;
+	position: relative;
+}
+
+.fundo-rodape .title {
+	float: left;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 5px 0;
+	color: #FFF;
+}
+
+.fundo-rodape .ui-grid-col-3 {
+	padding-left: 15px;
+}
+
+.fundo-rodape .ui-grid-col-3, .fundo-rodape .ui-grid-col-6 {
+	padding-top: 10px;
+}
+
+.fundo-rodape .link_rodape a {
+	float: left;
+	width: 100%;
+	margin-top: 6px;
+	text-align: left;
+	font-size: 12px;
+	color: #FFF;
+}
+
+.fundo-rodape .divisor {
+	float: left;
+	background: #61b1df;
+	height: 1px;
+	width: 90%;
+}
+
+/* ---------- CONTEÚDO ---------- */
+
+/* menu lateral */
+#frmProduto {
+	width: 100%;
+	clear: both;
+	margin-bottom: 15px;
+	float: left;
+	position: relative;
+}
+
+#menuLeft {
+	float: left;
+}
+
+#menuLeft ul li {
+	float: left;
+	width: 100%;
+	background: #184e9b;
+	border-bottom: 1px solid #0b3673;
+}
+
+#menuLeft ul li a {
+	float: left;
+	width: 85%;
+	padding: 6px 5px;
+	color: #FFF;
+	font-size: 13px;
+}
+
+#menuLeft ul li.grey a {
+	color: #414141;
+}
+
+#menuLeft ul li.grey {
+	border-bottom: 1px solid #414141;
+	background: #E1E1E1;
+}
+
+#menuLeft .bar {
+	float: left;
+	width: 3px;
+	height: 19px;
+	margin: 3px 0 0 5px;
+	transition: 0.3s;
+}
+
+#menuLeft ul li:hover .bar {
+	width: 8px;
+}
+
+#filter {
+	float: left;
+	margin-bottom: 15px;
+}
+
+#filter input {
+	width: calc(100% - 20px);
+}
+
+#filter button {
+	float: right;
+	margin-top: 17px;
+}
+
+#filter .label {
+	float: left;
+	margin-bottom: 5px;
+	font-size: 12px;
+	color: #184e9b;
+}
+/* MENU AJUDA */
+#menuAjuda {
+	float: left;
+}
+
+#menuAjuda ul {
+	float: left;
+	margin-bottom: 15px;
+}
+
+#menuAjuda ul li {
+	float: left;
+	width: 100%;
+	background: #E1E1E1;
+	border-bottom: 1px solid #b7b7b7;
+}
+
+#menuAjuda ul li a {
+	float: left;
+	width: 85%;
+	padding: 6px 5px;
+	color: #414141;
+	font-size: 13px;
+}
+
+#menuAjuda .bar {
+	float: left;
+	width: 3px;
+	height: 19px;
+	margin: 3px 0 0 5px;
+	transition: 0.3s;
+}
+
+#menuAjuda ul li.sub {
+	background: #f6f6f6;
+}
+
+#menuAjuda ul li.sub a {
+	padding: 6px 5px 6px 15px;
+}
+
+#menuAjuda ul li.sub:hover a {
+	padding: 6px 5px 6px 18px;
+}
+
+#menuAjuda ul li:hover .bar {
+	width: 8px;
+}
+
+/* PRODUTOS */
+.produtos {
+	width: 100%;
+	text-align: center;
+	position: relative;
+}
+
+.produtos .ui-widget-header, .produtos .ui-widget-content {
+	border: none;
+	background: none;
+}
+
+.produtos img {
+	max-width: 100%;
+}
+
+.produtos a.name {
+	float: left;
+	width: 100%;
+	font-size: 12px;
+	color: #888;
+	margin: 3px;
+}
+
+.produtos a.price {
+	float: left;
+	width: 100%;
+	color: #184e9b;
+	font-weight: bold;
+	font-size: 19px;
+	margin: 3px;
+}
+.produtos a.price span {
+	font-size: 13px;
+}
+
+.produtos p {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin: 3px;
+}
+
+.produtos .promocao {
+	width: 60px;
+	position: absolute;
+	right: 15px;
+	top: 85px;
+}
+
+.produtos .pdt {
+	width: 100%;
+	position: relative;
+	float: left;
+	margin: 5px 0 25px 0;
+}
+
+.produtos .comprar {
+	float: left !important;
+	margin: 0 0 0 53px;
+	background: #184e9b;
+	color: #FFF;
+	padding: 5px 15px;
+	z-index: 10px;
+}
+
+/* breadcrumb */
+.breadcrumb {
+	width: 100%;
+	float: left;
+	background: #e1e1e1;
+	border-radius: 3px;
+	padding: 10px;
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+.breadcrumb a {
+	font-size: 12px;
+}
+
+.breadcrumb a::after {
+	content: " >> ";
+	font-size: 8px;
+}
+
+.breadcrumb span {
+	font-weight: bold;
+}
+
+button.blue span {
+	background-color: #184e9b !important;
+	color: #FFF !important;
+	font-weight: normal !important;
+	border: 1px solid #184e9b !important;
+}
+
+button span {
+	background-color: #FFF !important;
+	font-weight: normal !important;
+}
+
+/* encomenda barra */
+#encomenda {
+	margin: 0;
+	border: 1px solid #184e9b;
+	text-align: center;
+}
+span.tamanhoCampo100 input {
+	width: calc(100% - 10px) !important;
+	margin-bottom: 15px;
+}
+
+#encomenda label {
+	float: left;
+	text-align: left;
+	margin: 5px 0;
+}
+
+#encomenda h2 {
+	float: left;
+	width: calc(100% - 20px);
+	background: #184e9b;
+	padding: 5px 10px;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#encomenda span {
+	float: left;
+	width: 100% background: #CCC;
+	color: #414141;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+#encomenda .btn {
+	height: 16px;
+	width: 16px;
+}
+
+#encomenda .btn span {
+	background-color: none !important;
+	margin: -6px 0 0 -6px;
+}
+
+#encomenda .btn .ui-button-text {
+	display: none;
+}
+
+#encomenda .ui-messages-info, #encomenda .ui-messages-error {
+	float: left;
+	width: calc(100% - 13px);
+}
+
+#encomenda ul, #encomenda ul li {
+	background: none;
+	border: 0;
+}
+
+#formSolicita {
+	width: calc(100% - 10px);
+	padding: 0 5px;
+	float: left;
+}
+
+#formSolicita input {
+	width: 100%;
+}
+
+#formSolicita textarea {
+	float: left;
+	margin: 5px 0 0 0;
+	width: 105%;
+}
+
+#formSolicita button, #formfinalizar button {
+	float: left;
+	width: 107%;
+	color: #FFF;
+	background: #414141;
+}
+.encomendaLink {
+	float: left;
+	width: 100%;
+	background: #184e9b;
+	color: #FFF;
+	font-weight: bold;
+	padding: 15px 0;
+	font-size: 12px;
+	
+}
+#formfinalizar button {
+	width: 102%;
+}
+
+#formSolicita button span, #formfinalizar button span {
+	float: left;
+	width: 88%;
+	color: #FFF;
+	background: none !important;
+}
+
+#formSolicita .entre {
+	float: right;
+	margin: 20px 5px 0 0;
+	font-size: 13px;
+}
+
+#encomenda ul li {
+	color: #FFF !important;
+	margin: 5px 0;
+}
+
+#encomenda .tabelaConvencional .ui-datatable-header, .tabelaConvencional .ui-paginator.ui-paginator-bottom,
+	.tabelaConvencional .ui-paginator.ui-paginator-top, .tabelaConvencional th
+	{
+	float: left;
+	width: 96%;
+	margin: 5px 0;
+	background: none !important;
+	border: 0 !important;
+	text-align: center;
+}
+
+/* produto detalhado */
+#pdtDetalhado .info  {
+	padding: 0 0 0 15px;
+}
+#pdtDetalhado .info .ui-widget-content {
+	border: 0;
+	width: calc(100% - 15px);
+	margin: 0 0 0 15px;
+}
+
+#pdtDetalhado .info h2 {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+#pdtDetalhado .info .ui-grid-col-12 {
+	margin-bottom: 10px;
+}
+
+#pdtDetalhado .info .title {
+	font-weight: bold;
+}
+
+#pdtDetalhado .info button {
+	width: calc(33% - 10px);
+	margin-right: 10px;
+}
+
+#pdtDetalhado .info button:last-child {
+	width: 33%;
+	margin-left: 0;
+}
+
+#pdtDetalhado .info button span {
+	background: #184e9b !important;
+	color: #FFF !important;
+	padding: 7px 0 !important;
+}
+
+#pdtDetalhado .info .divisor {
+	float: left;
+	border-top: 1px solid #E1E1E1;
+	margin: 5px 0 15px 0;
+	width: 100%;
+}
+
+#pdtDetalhado .info .qtd {
+	margin: 20px 0 30px 0;
+}
+
+#frmProdutoCompras th {
+	width: calc(100% - 20px);
+}
+
+#dataGridProduto_content tr td {
+	width: 25%;
+}
+
+.sugestao {
+	margin: 15px 0;
+	padding: 10px;
+	float: left;
+	background: #184e9b;
+	border-radius: 5px;
+}
+
+.sugestao h2 {
+	color: #FFF;
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.sugestao p {
+	color: #FFF;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+.sugestao p span {
+	color: #FFF;
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+.sugestao .produtoSugestao {
+	float: left;
+	width: 100%;
+	text-align: center;
+	background: #FFF;
+	border-radius: 5px;
+}
+
+.sugestao .produtoSugestao h2 {
+	color: #414141;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.sugestao .produtoSugestao p {
+	color: #184e9b;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sugestao .produtoSugestao a {
+	background: #184e9b;
+	color: #FFF;
+	padding: 5px;
+	float: left;
+	margin: 0 0 10px 32px;
+}
+
+.sugestao #dataGridProduto tr {
+	background: #184e9b !important;
+}
+
+.sugestao .ui-widget-content {
+	border: 0;
+}
+
+.sugestao .ui-paginator.ui-paginator-bottom {
+	border-radius: 5px;
+	margin-top: 10px;
+	background: #FFF;
+}
+
+.cult .ui-paginator-first, .cult .ui-paginator-last {
+	display: none !important;
+}
+
+.cult thead {
+	background: #184e9b;
+	width: calc(100% + 8px);
+}
+
+.cult thead span {
+	color: #FFF;
+}
+
+.cult .ui-paginator.ui-paginator-bottom {
+	width: calc(99% - 3px);
+	margin-top: 0;
+	border: 1px solid #a8a8a8 !important;
+}
+
+/* contato interno */
+#contact textarea {
+	padding: 5px;
+	width: calc(100% - 10px)
+}
+
+#contact .label {
+	font-size: 12px;
+	font-weight: bold;
+	float: left;
+	clear: both;
+	margin: 15px 0 5px 0;
+}
+
+#contact p {
+	float: left;
+	width: 100%;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#contact span.text, #senha span.text {
+	float: left;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+#contact .divisor {
+	float: left;
+	border-top: 1px solid #E1E1E1;
+	margin: 15px 0;
+	width: 100%;
+}
+
+/* ajuda */
+#ajuda h2 {
+	font-size: 16px;
+	font-weight: bold;
+	width: 100%;
+	float: left;
+	margin: 0 0 15px 0;
+}
+
+#ajuda p {
+	font-size: 14px;
+	width: 100%;
+	float: left;
+	margin: 0 0 15px 0;
+	line-height: 1.3;
+}
+/* meu cadastro */
+#meuCadastro {
+	line-height: 1.2;
+}
+
+#meuCadastro .fildset {
+	float: left;
+	border: 1px solid #E1E1E1;
+	padding: 10px;
+	width: calc(100% - 20px);
+	margin-bottom: 15px;
+}
+
+#meuCadastro .fildset legend {
+	color: #184e9b;
+	font-weight: bold;
+}
+
+#meuCadastro .block2 {
+	font-weight: bold;
+}
+
+#meuCadastro .ui-datatable {
+	margin: 10px 0 15px 0;
+	float: left;
+}
+
+#meuCadastro table button, #meuCadastro table button span {
+	background-color: none !important;
+}
+
+#meuCadastro th, #meuCadastro .ui-paginator {
+	background: #E1E1E1 !important;
+}
+
+#meuCadastro th span {
+	font-size: 12px;
+}
+
+#meuCadastro form label {
+	float: left;
+	font-size: 12px;
+	width: 100%;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+#meuCadastro .ui-selectoneradio .labelItem {
+	float: left;
+	margin: 3px 0 0 5px;
+}
+
+#meuCadastro form input {
+	float: left;
+	width: 90%;
+}
+
+#meuCadastro .password form input {
+	width: 98%;
+	margin-bottom: 5px;
+}
+
+#meuCadastro form .button {
+	float: left;
+	width: 100%;
+	margin-top: 17px;
+	height: 34px;
+}
+
+#meuCadastro form .button span {
+	background-color: none;
+}
+
+#meuCadastro .total {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0 0 15px 0;
+}
+
+#encomenda .ui-widget-content, #encomenda .ui-datatable tbody td {
+	border: 0 !important;
+	border-width: 0;
+}
+.carrinho table span {
+	font-size: 13px;
+	float: left;
+	margin: 0 0 6px 0;
+	background-color: none;
+}
+#meuCadastro table button {
+	width: 33px !important;
+	height: 33px !important;
+	background: #E1E1E1 !important;
+	margin-right: 2px;
+	border-radius: 3px !important;
+	border: 1px solid #CCC !important;
+}
+#meuCadastro h2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #14458C;
+	margin-bottom: 10px;
+}
+#meuCadastro table button span {
+	float: left;
+	background-color: #E1E1E1 !important;
+	text-shadow: none !important;
+	color: #14458C !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none;
+}
+#meuCadastro table button .ui-button-text {
+	display: none;
+}
+#meuCadastro .rbutton span {
+	margin: 0 0 15px 0 !important;
+}
+#meuCadastro .rbutton label {
+	margin: 0 5px 15px !important;
+	font-weight: normal;
+}
+#meuCadastro.pagamento label {
+	
+	margin: 0 0 0 15px !important;
+}
+#meuCadastro.pagamento .fontSize13 {
+	font-weight: normal;
+}
+.encomendaNumber input {
+	width: calc(100% - 10px) !important; margin: 0 0 15px 0
+}

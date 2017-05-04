@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Trator de Compras</title>
+
+	<link rel="shortcut icon"
+		href="#{request.contextPath}/resources/img/favicon.png"
+		type="image/x-icon" />
+
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/reset.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/primefaces.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/styleMain.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/styleExterno.css" />
+
+	<meta name="description"
+		content="A Agro-Fauna é uma empresa atacadista com mais de 30 anos que atende todo o território nacional." />
+	<meta name="keywords"
+		content="agro, fauna, brasil, rio preto, loja, loja, virtual, trator, comprar, solo" />
+	<meta http-equiv="pragma" content="no" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="language" content="pt-br" />
+	<meta name="revisit-after" content="7 days" />
+	<meta name="distribution" content="global" />
+	<meta name="robots" content="index, follow" />
+	<meta name="rating" content="general" />
+	<meta name="googlebot" content="1. yes" />
+	<meta name="robots" content="noarchive" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<ui:insert name="headLogin">
+	</ui:insert>
+
+	<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-80039672-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+</h:head>
+<h:body>
+	<p:ajaxStatus styleClass="ajax-status">
+		<f:facet name="start">
+			<!-- <h:graphicImage url="#{request.contextPath}/../resources/img/loader.gif"/> -->
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+
+	<p:ajaxStatus onstart="PF('statusDialog').show()"
+		onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+		closable="false" resizable="false" showHeader="false">
+		<p:graphicImage
+			url="#{request.contextPath}/../resources/img/loader.gif" />
+	</p:dialog>
+
+	<div style="min-width: 992px;">
+		<div id="cabecalho">
+
+			<div class="container">
+				<div class="fone">
+					<p:graphicImage
+						url="#{request.contextPath}/../resources/img/phone35.png" />
+					<div class="container">
+						<p:outputLabel value="17" class="fone-ddd" />
+						<p:outputLabel value="3224.1233" class="fone-number" />
+					</div>
+				</div>
+			</div>
+
+			<div class="boxBoth">
+				<div class="menuNavHor backgroundAzul">
+					<ul class="container">
+						<li><h:link outcome="/index">
+						Sobre a Agro-Fauna
+						</h:link></li>
+						<li><h:link outcome="/cadastrar">
+							Cadastro
+						</h:link></li>
+						<li><h:link outcome="/produto">
+							Produto
+						</h:link></li>
+						<li><h:link outcome="/contato">
+							Contato
+						</h:link></li>
+					</ul>
+
+					<div class="boxBoth"></div>
+
+				</div>
+			</div>
+		</div>
+
+		<br class="clear" />
+
+		<div class="conteudo">
+			<div class="container">
+				<div class="metade">
+					<p:graphicImage
+						url="#{request.contextPath}/../resources/img/vantagens-trator-agro-fauna.jpg"
+						style="width: 100%;" />
+				</div>
+
+				<div class="metade">
+
+					<div class="boxLogin">
+						<div class="boxLoginInterno">
+
+							<h:form id="entrar">
+
+								<p:outputLabel value="Acesso ao Trator de Compras"
+									class="fontAzul title" />
+
+								<p:messages id="msglogin" autoUpdate="false" closable="true"
+									style="text-align: left;" />
+
+								<div class="item">
+									<p:outputLabel for="tipo" value="Tipo Login:" class="desc" />
+									<p:selectOneMenu id="tipo" value="#{loginBean.tipoLogin}">
+										<f:selectItem itemLabel="Login" itemValue="1" />
+										<f:selectItem itemLabel="CNPJ/CPF" itemValue="2" />
+										<f:selectItem itemLabel="E-mail" itemValue="3" />
+									</p:selectOneMenu>
+								</div>
+
+								<div class="item">
+									<p:outputLabel for="login" value="Login: " class="desc" />
+									<p:inputText id="login" value="#{loginBean.login.nmLogin}"
+										class="inputLogin" placeholder="Usuário" />
+								</div>
+
+								<div class="item">
+									<p:outputLabel for="senha" value="Senha: " class="desc" />
+									<p:password id="senha" value="#{loginBean.login.nmSenha}"
+										class="inputLogin" placeholder="Senha" />
+								</div>
+
+								<h:link outcome="/recuperarsenha" value="Esqueci minha senha"
+									class="fontAzul password" />
+
+								<div class="boxBoth">
+									<p:commandButton update="@form"
+										action="#{loginBean.logarCliente()}" value="ENTRAR"
+										class="botaoAzul "
+										style="display: inline-block; margin: 10px 0;" />
+								</div>
+							</h:form>
+
+							<div class="boxBoth boxAlignCenter">
+								<h:link outcome="/cadastrar" value="Não possui cadastro?"
+									class="fontAzul cadastro" />
+								<h:link outcome="/cadastrar"
+									value="Clique aqui e faça já o seu!" class="fontAzul cadastro"
+									style="margin-bottom: 10px;" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<ui:insert name="conteudoIndex">
+					<div id="about" class="boxBoth">
+						<div style="margin: 26% 0 0;">
+							<div style="width: 95px;" class="floatLeft">
+								<p:graphicImage
+									url="#{request.contextPath}/../resources/img/icone-trator-agro-fauna.jpg"
+									style="width: 100%; margin-bottom: 25px;"
+									alt="trator de compras" />
+							</div>
+							<h2>
+								Sobre o<br /> Trator de Compras
+							</h2>
+
+						</div>
+
+						<div class="boxBoth content index">
+							<p>A Agro-Fauna é uma empresa atacadista, voltada para o
+								mercado do agronegócio e com forte desempenho nesse setor, desde
+								1981.</p>
+
+							<p>No início dos negócios, vendedores ambulantes usavam uma
+								lista com os nomes dos produtos e seus respectivos valores para
+								realizar as vendas. Quando não tinham disponibilidade de ir até
+								o local, deixavam uma lista parecida com a que usavam para que o
+								cliente pudesse avaliar os valores.</p>
+
+							<p>Em 1983, teve início o projeto de televendas, que gerou
+								expansão de negócios e sucesso no contato com o cliente. Com
+								esse sucesso e condições favoráveis, a venda por atacado fez com
+								que a Agro-Fauna crescesse em todo o Brasil.</p>
+
+							<p>Mesmo diante dos desafios do mercado, no período de 1986 à
+								1990 conseguiu atingir o ranking como um dos maiores
+								distribuidores de agro defensivos do país.</p>
+
+							<p>Em 2012, a Agro-Fauna implantou o sistema de vendas
+								online, onde nasceu o site Trator de Compras, no qual hoje são
+								realizadas a maioria das vendas. Os clientes possuem o próprio
+								campo dentro da empresa online onde encontram produtos com os
+								seus respectivos preços, como também ofertas moldadas para as
+								necessidades dos mesmos.</p>
+
+							<p>A Agro-Fauna atua também em causas sociais com trabalhos
+								realizados na ONG Renovar, que apoia a estruturação familiar e a
+								educação infantil.</p>
+
+							<p>Desde então, a Agro-Fauna vem alcançando grandes
+								resultados.</p>
+						</div>
+					</div>
+				</ui:insert>
+
+			</div>
+		</div>
+
+		<ui:include src="rodape.xhtml" />
+
+	</div>
+
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/jquery.mask.js" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/mainExterno.js" />
+
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+		s1.async=true;
+		s1.src='https://embed.tawk.to/5773b98d5b5bb1e76eafde07/default';
+		s1.charset='UTF-8';
+		s1.setAttribute('crossorigin','*');
+		s0.parentNode.insertBefore(s1,s0);
+		})();
+	</script>
+
+</h:body>
+</html>

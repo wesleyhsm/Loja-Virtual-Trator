@@ -1,0 +1,106 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+	<ui:define name="titulo">Frete : Compre e Ganhe</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuLeft" class="ui-grid-col-2">
+
+			<ui:include src="../elements/encomenda.xhtml" />
+
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Finalizar Compra" />
+					<span>Frete</span>
+				</div>
+
+				<h:form>
+					<fieldset class="fildset">
+						<legend>Frete</legend>
+
+						<p:outputPanel id="customPanel" style="margin: 0 0 0 30px; ">
+							<p:selectOneRadio id="customRadio"
+								value="#{freteCompreGanheBean.tipoFrete}" layout="custom">
+								<f:selectItem itemLabel="Red" itemValue="1" />
+								<f:selectItem itemLabel="Green" itemValue="2" />
+								<f:selectItem itemLabel="Blue" itemValue="3" />
+								<f:selectItem itemLabel="grey" itemValue="4" />
+							</p:selectOneRadio>
+
+							<h:panelGrid columns="2" cellpadding="5">
+								<p:radioButton id="opt1" for="customRadio" itemIndex="0" />
+								<h:outputLabel for="opt1" value="Cotação pela Agro-fauna"
+									style="margin: 3px 0 0 10px;" />
+
+								<h:inputHidden />
+								<h:outputLabel styleClass="fontSize13"
+									value="* Informaremos o valor e a transportadora por e-mail para aprovação"
+									style="margin: 5px 0 10px 10px;" />
+
+								<h:inputHidden />
+								<p:selectOneRadio id="frete1"
+									value="#{freteCompreGanheBean.incluirValorFreteProduto}"
+									class="rbutton">
+									<f:selectItem itemLabel="Incluir no valor do pedido"
+										itemValue="true" />
+									<f:selectItem itemLabel=" Não incluir no valor do pedido"
+										itemValue="false" />
+								</p:selectOneRadio>
+
+								<p:radioButton id="opt2" for="customRadio" itemIndex="1" />
+								<h:outputLabel for="opt2" value="Retirada da mercadoria"
+									style="margin: 3px 0 0 10px;" />
+
+								<h:inputHidden />
+								<h:outputLabel styleClass="fontSize13"
+									value="* Retirar a mercadoria em nosso depósito em São José do Rio Preto-SP"
+									style="margin: 5px 0 10px 10px;" />
+
+								<p:radioButton id="opt3" for="customRadio" itemIndex="2" />
+								<h:outputLabel for="opt3"
+									value="Eu cliente me responsabilizo pelo frete"
+									style="margin: 3px 0 0 10px;" />
+
+								<h:inputHidden />
+								<h:outputLabel styleClass="fontSize13"
+									value="* Caso possua tabela cliente, favor entrar em contato com os nossos vendedores para informar o nome da transportadora"
+									style="margin: 5px 0 10px 10px;" />
+
+								<p:radioButton id="opt4" for="customRadio" itemIndex="3" />
+								<h:outputLabel for="opt4"
+									value="Gostaria de receber junto com uma compra pendênte ou na proxima compra"
+									style="margin: 3px 0 0 10px;" />
+
+								<h:inputHidden />
+								<h:outputLabel styleClass="fontSize13"
+									value="* O frete da troca dos pontos pelos produtos será por conta do cliente."
+									style="margin: 5px 0 10px 10px;" />
+							</h:panelGrid>
+						</p:outputPanel>
+					</fieldset>
+
+					<div class="boxMargemPadrao boxBoth">
+						<p:commandButton update="@form"
+							action="#{freteCompreGanheBean.verificaTipoFrete()}"
+							value="Avançar" class="blue right" />
+
+						<p:button outcome="/carrinhoDeCompras/carrinhoDeCompras.xhtml"
+							value="Voltar" class="blue right" />
+					</div>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

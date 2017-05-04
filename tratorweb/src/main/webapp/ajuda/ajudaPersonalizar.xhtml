@@ -1,0 +1,42 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Ajuda : Personalizar</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuAjuda.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="ajuda">
+			
+			<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Ajuda" />
+					<span>Personalizar</span>
+				</div>
+
+				<h2>Personalize seu Trator</h2>
+<p> Você só tem a ganhar com a personalização!</p> 
+
+<h2>Razões para acreditar na personalização:</h2>
+
+<p> 1 - Na personalização você pode inserir somente os e-mails das pessoas que decidem no momento da compra.</p>  
+<p> 2 - Você pode nos informar sobre as culturas plantadas na sua região e receber dados específicos para o que você precisa e descontos para os produtos usados nela.</p>  
+<p> 3 - Se você é distribuidor de alguma marca, não iremos incomodá-lo nesses produtos ofertando preços mais elevados. </p>  
+<p> 4 - Quando você personaliza, está nos informando que tem interesse naqueles produtos especificamente, permitindo assim o envio de preços exclusivos, movimentando assim uma parceria objetiva e duradoura.</p>   
+<p> 5 - Nosso objetivo futuro será de transformar nosso Trator em uma ferramenta de trabalho onde você obterá subsídios para realizar negócios rápidos e lucrativos.</p>  
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

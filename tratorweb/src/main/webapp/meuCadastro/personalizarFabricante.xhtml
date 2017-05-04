@@ -1,0 +1,100 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Personalizar Fabricante</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuCliente.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Área do Cliente" />
+					<p:commandLink value="Personalizar" />
+					<span>Fabricante</span>
+				</div>
+
+				<h:form id="formfabricante">
+
+					<div class="ui-grid-col-12">
+						<p:outputLabel for="idfabricante" value="Selecione o fabricante" />
+						<p:selectOneMenu id="idfabricante" style="width: 80%;"
+							value="#{personalizarBean.fabricante.idFabricante}">
+							<f:selectItems value="#{personalizarBean.buscaFabricantes()}"
+								var="fab" itemLabel="#{fab.nmRazaoSocial}"
+								itemValue="#{fab.idFabricante}" />
+						</p:selectOneMenu>
+					</div>
+
+					<div class="ui-grid-col-12" style="margin-top: 10px;">
+						<p:outputLabel for="fabprincipal" value="Fabricante principal:" />
+						<p:selectOneMenu id="fabprincipal" style="width: 80%;"
+							value="#{personalizarBean.clienteFabricante.snPrincipal}"
+							required="true">
+							<f:selectItem itemLabel="Sim" itemValue="1" /> 
+							<f:selectItem itemLabel="Não" itemValue="2" />
+						</p:selectOneMenu>
+					</div>
+					<div class="ui-grid-col-12">
+						<p:commandButton update=":formdtfabricante:dtfabricante @form"
+							action="#{personalizarBean.salvarClienteFabricante()}"
+							class="blue" style="margin-top: 10px;" value="Salvar Fabricante" />
+					</div>
+
+					<div class="ui-grid-col-12">
+						<p:messages id="msgfabricante" autoUpdate="false" closable="true" />
+					</div>
+
+				</h:form>
+				<h:form id="formdtfabricante">
+					<p:dataTable id="dtfabricante" var="fabri"
+						value="#{personalizarBean.listClienteFabricanteCadastrada()}"
+						paginator="true" rows="10" paginatorPosition="bottom"
+						emptyMessage="Nenhum item cadastrado.">
+						
+						<p:column headerText="Fabricantes selecionados">
+							<h:outputText value="#{fabri.fabricante.nmRazaoSocial}" />
+						</p:column>
+
+						<p:column headerText="Principal"
+							style="width: 80px; text-align: center;">
+							<p:inputSwitch value="#{fabri.snPrincipal}" onLabel="Sim" offLabel="Não">
+								<p:ajax listener="#{personalizarBean.atualizarClienteFabricante(fabri)}" update=":formfabricante:msgfabricante :formdtfabricante:dtfabricante" />
+							</p:inputSwitch>
+						</p:column>
+
+						<p:column headerText="" style="width: 35px;">
+							<p:commandButton update=":formfabricante:msgfabricante @form"
+								action="#{personalizarBean.removerClienteFabricante(fabri)}"
+								class="botaoAzul" title="Remover Fabricante"
+								icon="ui-icon-trash">
+								<p:confirm header="Excluir Fabricante"
+									message="Você tem certeza?" icon="ui-icon-alert" />
+							</p:commandButton>
+						</p:column>
+					</p:dataTable>
+
+					<p:confirmDialog global="true" showEffect="fade">
+						<p:commandButton value="Sim" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="Não" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</h:form>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

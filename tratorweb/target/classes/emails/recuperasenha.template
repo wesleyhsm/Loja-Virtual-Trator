@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <table>
+        	<tr>
+                <td>Trator de Compras - recuperar senha</td>                
+            </tr>
+            <tr>
+                <td style="width: 100px">Nome:</td>
+                <td>$cliente.nmRazaoSocial</td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>$cliente.getEmails().get(0).getNmEmail()</td>
+            </tr>
+            <tr>
+                <td>Login:</td> 
+                <td>cliente.getLogins().get(0).getNmLogin()</td>
+            </tr>
+            <tr>    
+                <td>Senha:</td> 
+                <td>cliente.getLogins().get(0).getNmSenha()</td>
+            </tr>
+        </table>
+    </body>
+</html>

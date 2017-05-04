@@ -1,0 +1,111 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Contato</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuLeft" class="ui-grid-col-2">
+
+			<ui:include src="../elements/encomenda.xhtml" />
+
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="contact">
+			
+			<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<span>Contato</span>
+				</div>
+
+				<fieldset>
+					<h:form id="msgContato">
+						<p style="margin: 0 0 15px 0">Encontrou algum problema, necessita de suporte ou entrar em
+							contato direto? Fale conosco!</p>
+
+						<p:messages id="msg" autoUpdate="false" closable="true"
+							style="text-align: left; clear: both; margin: 0 0 15px 0" />
+
+						<div style="line-height: 1.5;">
+							<span class="bold">Código: </span>
+							<h:outputText value="Código: #{loginBean.cliente.idPessoa}" />
+							<br />
+							<span class="bold">Nome: </span>
+							<h:outputText value="Nome: #{loginBean.cliente.nmRazaoSocial}" />
+						</div>
+
+						<div class="ui-grid-col-6">
+							<div class="ui-grid-col-12">
+								<p:outputLabel for="setores" value="Setor" class="label" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:selectOneMenu id="setores"
+									value="#{contatoLogadoBean.setor.idSetor}"
+									style="width: 300px;">
+									<f:selectItems value="#{contatoLogadoBean.buscarSetor()}"
+										var="seto" itemLabel="#{seto.nmSetor}"
+										itemValue="#{seto.idSetor}" />
+								</p:selectOneMenu>
+							</div>
+						</div>
+
+						<div class="ui-grid-col-6">
+							<div class="ui-grid-col-12">
+								<p:outputLabel for="assunto" value="Assunto" class="label" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:inputText id="assunto"
+									value="#{contatoLogadoBean.contatoLogado.nmTituloAssunto}"
+									placeholder="Assunto" style="width: calc(100% - 10px);" />
+							</div>
+						</div>
+
+						<div class="ui-grid-col-12">
+						<p:outputLabel for="msgtexto" value="Mensagem: " class="label" />
+						<p:inputTextarea id="msgtexto"
+							value="#{contatoLogadoBean.contatoLogado.nmMensagem}"
+							rows="7" placeholder="Mensagem..."
+							counter="display" maxlength="500"
+							counterTemplate="{0} caracteres restantes." />
+						<h:outputText id="display" />
+						</div>
+
+						<p:commandButton update="@form"
+							action="#{contatoLogadoBean.salvarContatologado()}"
+							style="float: right" value="ENVIAR" class="blue" />
+					</h:form>
+				</fieldset>
+
+				<div class="divisor"></div>
+
+				<div class="ui-grid-col-12">
+					<span class="text">Encontre outras formas parar entrar em
+						contato com a Agro-Fauna!</span>
+
+					<p>Endereço</p>
+					<span class="text">Rua Doutor Coutinho Cavalcanti, 1171<br />
+						Jardim América, São José do Rio Preto - SP<br /> CEP 15055-300
+					</span>
+
+					<p>Telefones</p>
+					<span class="text">(17) 3224.1233 / 3022.2300 / 3223.6211</span>
+
+					<p>E-mail</p>
+					<span class="text">faleconosco@agrofauna.com.br</span>
+
+					<p>WhatsApp</p>
+					<span class="text">(17) 98164.7582 / 99215-4134</span>
+				</div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

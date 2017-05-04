@@ -1,0 +1,875 @@
+*{
+    font-family: helvetica, sans-serif;
+}
+
+body{
+    max-width: 1920px !important;
+    margin: 0 auto;
+}
+
+.box{
+    text-align: center;
+}
+
+.boxBoth{
+    clear: both;
+}
+
+.boxFloat{
+    float: left;
+    margin: 0 0 0 5px;
+}
+
+#container{
+    height: 97%;
+    margin: 0 auto;
+    min-width: 780px;
+    max-width: 1750px;
+    width: 80%;
+}
+
+/*CABECALHO ====================================================================
+*/
+
+#entrar\:tipo_label {
+    height: 20px;
+}
+
+#cabecalho{
+    position: relative;
+    font-family: helvetica, sans-serif;
+}
+
+#cabecalho .logo img{
+    width: 100%;
+}
+
+#cabecalho .logo{
+    width: 25%;
+    max-width: 195px;
+    margin: 0 0 2px 0;
+}
+
+#cabecalho .boxBoth .menuNavHor ul{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#cabecalho .boxBoth .menuNavHor ul a {
+    float: left;
+    width: 14%;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+#cabecalho .boxBoth .menuNavHor ul a:hover {
+    background: #275daa;
+}
+
+#cabecalho .boxBoth .menuNavHor ul a li{
+    padding: 5px;
+    font-size: 11px;
+}
+
+#cabecalho .boxBoth .menuNavHor ul a.selecionado li{
+    color: #184e9b;
+    background: #FFF;
+    padding: 5px;
+    font-size: 11px;
+}
+
+.paineisDireita{
+    width: 25%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#PCMeuTrator img{
+    width: 50px;
+}
+
+#PCMeuTrator{
+    border: 1px #d2d5d5 solid;
+    border-radius: 8px;
+    padding: 7px 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#painelUsuario{
+    position: absolute;
+    top: 55px;
+    right: 0;
+}
+
+#painelUsuario .sair{
+    border: 1px solid #d2d5d5;
+    color: #184e9b;
+    padding: 0 7px 2px;
+}
+
+#bannerPrincipal{
+    margin: 5px 0;
+}
+
+#bannerPrincipal img{
+    width: 100%;
+}
+
+#botaoBanner{
+    position: absolute;
+    top: 42px;
+    right: 17px;
+    width: 45%;
+}
+
+/*MEIO========================================================================*/
+
+.formEncomenda{
+    width: 100%;
+    max-width: 223px;
+}
+
+.formEncomenda form .block{
+    width: 95%;
+}
+
+.titulosTabConvencional{
+    position: absolute;
+    top: -9px; 
+    left: 10px; 
+    color: #184e9b; 
+    padding: 2px 5px; 
+    background: #FFF;  
+    border-radius: 4px; 
+    font-size: 13px;
+}
+
+.boxAzul{
+    min-height: 20px; 
+    background: #184e9b; 
+    text-align: center; 
+    padding: 17px 0 0; 
+    color: #FFF; 
+    border-radius: 5px;
+}
+
+.produto{
+    width: 140px;
+    float: left;
+    margin: 10px 0 0 5px;
+}
+.produto img{
+    width: 48%;
+}
+
+.produto .tituloProduto{
+    font-size: 13px;
+
+}
+.produto .infoCaixa{
+    font-size: 11px;
+}
+
+#meio{
+    clear: both;
+    text-align: center;
+    position: relative;
+}
+
+.esquerda{
+    font-family: helvetica, sans-serif;
+    width: 23%;
+    float: left;
+}
+
+.centro{
+    width: 60%;
+    float: left;
+    min-height: 900px;
+    font-family: helvetica,sans-serif;
+    position: relative;
+}
+
+.centro fieldset{
+    border: 2px solid #184e9b;
+    border-radius: 6px;
+    color: #184e9b;
+    font-size: 17px;
+    height: 99%;
+    margin: 0 auto 0 2px;
+    overflow: auto;
+    padding: 3px;
+    text-align: left;
+    width: 99%;
+} 
+
+.centro fieldset p{
+    margin: 50px 0;
+} 
+
+.centro fieldset p:first-child{
+    margin: 0;
+}
+
+.pesquisaInput{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    float: left;
+    margin: 0 0 0 5px;
+    padding: 5px 0;
+    width: 58%;
+}
+
+.pesquisaComboBox{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #888;
+    float: left;
+    margin-left: 9px;
+    width: 30%;
+}
+.pesquisaComboBox div{
+    border: 0 none;
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+}
+
+.pesquisarBox{
+    width: 69%; 
+    float: left;
+}
+.checkboxPesquisarBox{
+    width: 29%; 
+    float: left; 
+    margin: 0 0 0 1%;
+}
+
+
+.produtos{
+    width: 75%;
+    text-align: center;
+    float: left;
+    position: relative;
+    padding: 20px;
+}
+
+.produtos a{
+    text-decoration: none;
+}
+.conteudo{
+    padding: 10px 0;
+}
+
+.produtos img{
+    border-radius: 8px;
+    width: 50%;
+}
+
+.produtos img.promocao{
+    position: absolute;
+    top: 42px;
+    right: 17px;
+    width: 45%;
+}
+
+.produtos p{
+    font-size: 12px;
+    color: #888;
+    font-weight: 500;
+    margin: 2px;
+}
+.produtos h2{
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.produtos h2 span{
+    font-size: 12px;
+    position: absolute;
+    top: 4px;
+}
+
+.produtos input{
+    border: 0;
+    font-size: 17px;
+    padding: 7px 1px;
+    cursor: pointer;
+}
+
+.produtos .pagAnte{
+    color: rgb(255, 255, 255); 
+    background-color: rgb(255, 0, 0); 
+    margin: 0px auto; 
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.menuNavVertical ul{
+	list-style: none;
+	margin: 0;
+}
+
+.menuNavVertical a{
+	text-decoration: none;
+	color: #fff;
+        font-size: 13px;
+}
+.menuNavVertical .selecionado{
+	color: #959595!important;  
+	background: #fff;
+        border: 0;
+}
+
+.menuNavVertical ul li{
+        text-align: left;
+	background: #959595;
+	border: 1px solid #888888;
+	padding: 5px 2px;
+}
+
+.menuNavVertical ul li.menuAzul:hover{
+     background: #275daa;
+}
+
+.menuNavVertical ul li.menuazul.selecionadoA{
+    background: #FFF;
+    color: #184e9b;
+    border: 1px solid transparent; 
+}
+
+.boxColorOrange{
+    width: 3px;
+    height: 19px;
+    background-color: #FF7400;
+    margin: 4px 3px 2px 2px;
+    float: left;
+}
+
+.boxColorGreen{
+    width: 3px;
+    height: 19px;
+    background-color: #2EB33A;
+    margin: 4px 3px 2px 2px;
+    float: left;
+}
+
+.boxColorBlue{
+    width: 3px;
+    height: 19px;
+    background-color: #00FFF5;
+    margin: 4px 3px 2px 2px;
+    float: left;
+}
+
+.boxColorYellow{
+    width: 3px;
+    height: 19px;
+    background-color: #E5FF00;
+    margin: 4px 3px 2px 2px;
+    float: left;
+}
+.boxColorInvisible{
+    width: 3px;
+    height: 19px;
+    margin: 4px 3px 2px 2px;
+    float: left;
+}
+
+.chatProdutos{
+    padding: 0;
+    max-width: 175px;
+    margin: 5px 0 0;
+}
+
+.chatProdutosTitulo{
+    background: url("../img/chat.png") no-repeat scroll 3px center / 36px auto;
+    height: 39px;
+    width: 100%;
+}
+
+.chatProdutosTitulo p{
+    float: right;
+    font-size: 11px;
+    margin: 13px 1px;
+}
+
+.ajuda{
+    border-bottom: 1px solid #184e9b;
+}
+
+.ajuda h1{
+    font-family: helvetica;
+    font-size: 19px;
+    margin: 0;
+}
+.cotacoes{
+    width: 100%;
+    height: 60px;
+    max-width: 150px;
+    float: right;
+}
+
+
+.inbox{
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+
+
+
+.inbox .voceEstaDigitando{
+	bottom: 58px;
+    font-size: 12px;
+    position: absolute;
+    right: 80px;
+}
+
+.inbox p{
+	margin: 0;
+	padding: 0;
+}
+
+.inboxProdutos{
+	width: 100%;
+        height: 245px;
+	position: relative;
+}
+
+.inboxProdutos .voceEstaDigitando{
+	bottom: 58px;
+    font-size: 12px;
+    position: absolute;
+    right: 6px;
+}
+
+.inboxProdutos p{
+	margin: 0;
+	padding: 0;
+}
+
+.inboxProdutos .text{
+    background: none repeat scroll 0 0 #cfcfcf;
+    border: 0 none;
+    bottom: 2px;
+    font-size: 12px;
+    height: 55px;
+    max-height: 55px;
+    max-width: 90%;
+    min-height: 55px;
+    min-width: 90%;
+    position: absolute;
+    right: 5px;
+    width: 90%;
+}
+
+
+.novaJanela, .salvarImprimir{
+	border-top: 1px solid #184e9b;
+    height: 37px;
+    text-align: center;
+    padding: 11px;
+}
+
+.novaJanela a, .salvarImprimir a{
+	text-decoration: none;
+	
+}
+
+.novaJanela img{
+    padding: 2px 5px;
+    width: 30px;
+}
+
+.novaJanela img, .novaJanela a{
+	float: left;
+}
+
+
+.direita{
+    float: left;
+    width: 17%;
+}
+
+.produtosLateral{
+    text-align: right;
+}
+
+
+.produtosLateral .img div{
+	display: inline-block;
+}
+
+.produtosLateral img{
+    border: 1px #d2d5d5 solid;
+    border-radius: 8px;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.produtoLateral .img{
+	margin-bottom: 15px;
+}
+
+.galeria{
+    margin: 0 0 0 5px;
+    width: 35%;
+    float: left;
+}
+
+.galeria .imagem{
+    width: 100%;
+    border: 2px solid #a7a9ac;
+    padding: 11px 0;
+}
+
+.galeria .miniaturas .imagem{
+    width: 25%;
+    border: 2px solid #a7a9ac;
+    padding: 3px;
+    margin: 3px 3px 0 0;
+}
+
+.galeria .imagem img{
+    width: 50%;
+}
+
+.galeria .miniaturas .imagem p{
+    color: #a7a9ac;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.galeria .descricoes{
+    border: 2px solid #a7a9ac;
+    height: 80px;
+    margin: 10px 0 0;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.galeria .descricoes p{
+    font-size: 16px;
+    padding: 0;
+}
+
+.descricoes{
+    width: 63%;
+    float: left;
+}
+
+.descricoes p, .descricoes h2, .descricoes td, .descricoes label{
+    text-align: left; 
+    float: left; 
+    font-size: 11px;
+    padding: 5px 25px;
+    
+    color: #a7a9ac;
+}
+
+.descricoes label{
+    padding: 0;
+}
+
+.descricoes table{
+    margin: 40px 0 0 20px;
+    border-bottom: 1px solid #a7a9ac;
+    border-top: 1px solid #a7a9ac;
+}
+
+.descricoes td{
+    padding: 5px 0;
+    width: 132px;
+}
+
+.descricoes h2{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.descricoes .quantidade{
+    padding: 31px 20px;
+    text-align: left;
+    width: 145px;
+}
+
+.quantidade label{
+    padding: 0;
+    font-size: 14px;
+}
+
+.botoes{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.botoes a{
+    background: none repeat scroll 0 0 #184e9b;
+    color: #fff;
+    display: block;
+    font-size: 11px;
+    margin: 2px 0;
+    padding: 9px 3px;
+    text-align: right;
+    text-decoration: none;
+    width: 26%;
+    float: left;
+}
+
+.botoes input{
+    background: none repeat scroll 0 0 #184e9b;
+    color: #fff;
+    height: 40px;
+    width: 26%;
+    cursor: pointer;
+    border: 0 none;
+    display: block;
+    margin: 2px 6px;
+    float: left;
+    text-align: right;
+}
+
+.sugestoes{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.sugestoesBox{
+    width: 48%;
+    background: #184e9b;
+    float: left;
+    margin: 2px;
+    border-radius: 8px;
+    padding: 0 0 25px 0;
+}
+
+.sugestoes h2{
+    font-size: 23px;
+    color: #184e9b;
+}
+
+.produtoSugestao{
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 8px;
+    float: left;
+    margin: 17px 2% 0;
+    position: relative;
+    width: 45%;
+    text-align: center;
+}
+
+.menuNavHor a{
+    padding: 5px 0;
+}
+
+.produtoSugestao h2{
+    font-size: 11px;
+}
+
+.produtoSugestao input{
+    background: none repeat scroll 0 0 #184e9b;
+    border: 0 none;
+    border-radius: 2px;
+    bottom: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px 0 10px 0;
+}
+
+.produtoSugestao img{
+    width: 50%;
+    padding: 5px 0 0 0;
+}
+
+.buscar{
+    width: 86% !important;
+}
+
+.ordenar{
+    
+}
+
+.tiraTudo .ui-widget-content{
+    border: none;
+}
+
+.tiraTudo .ui-widget-header{
+    background: transparent;
+    border: none;
+}
+
+/*RODAPE========================================================================
+*/
+
+#rodape{
+    font-family: helvetica, sans-serif;
+    clear: both;
+    width: 100%;
+    height: 130px;
+    box-shadow: inset 0px 3px 3px 0px rgba(50, 50, 50, 0.62);
+    position: relative;
+}
+
+#rodape .menuNavHor ul{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0 0;
+}
+
+#rodape .menuNavHor ul a {
+    float: left;
+    width: 14%;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#rodape .menuNavHor ul a li{
+    padding: 5px;
+    border-left: 1px solid #FFF; 
+    font-size: 8px;
+}
+
+.logoAgroFauna{
+    bottom: 25px;
+    left: 95px;
+    position: absolute;
+}
+
+.logoAgroFauna img{
+    width: 20%
+}
+#rodape p {
+    bottom: 25px;
+    color: #fff;
+    font-size: 8px;
+    position: absolute;
+    right: 128px;
+}
+
+
+@media screen and (min-width: 800px) {
+    #cabecalho .boxBoth .menuNavHor ul a li{
+        font-size: 9px;
+    }
+
+    #cabecalho .boxBoth .menuNavHor ul a.selecionado li{
+        font-size: 9px;
+    }
+}
+
+@media screen and (min-width: 1032px) {
+    #cabecalho .boxBoth .menuNavHor ul a li{
+        font-size: 10px;
+    }
+
+    #cabecalho .boxBoth .menuNavHor ul a.selecionado li{
+        font-size: 10px;
+    }
+    
+    .menuNavVertical a {
+        font-size: 14px;
+    }
+    
+    .menuNavVertical{
+        max-width: 285px;
+    }
+    
+    
+    
+    
+}
+
+@media screen and (min-width: 1123px) {
+    
+    
+    .menuNavVertical a {
+        font-size: 15px;
+    }
+    
+    .produtoSugestao h2 {
+        left: 8px;
+    }
+    
+    .produtoSugestao input { 
+        left: 18px;
+    }
+    
+    .botoes {
+        margin: 25px auto 0;
+    }
+    
+    
+    
+    .chatProdutos{
+        max-width: 196px;
+    }
+}
+
+@media screen and (min-width: 1264px) {
+   #cabecalho .boxBoth .menuNavHor ul a li{
+        font-size: 13px;
+    }
+
+    #cabecalho .boxBoth .menuNavHor ul a.selecionado li{
+        font-size: 13px;
+    }
+    
+    #rodape .menuNavHor ul a li{
+        font-size: 13px;
+    }
+    
+    .menuNavVertical a {
+        font-size: 16px;
+    }
+    .chatProdutosTitulo p {
+        font-size: 13px;
+        margin: 12px 1px;
+    }
+    
+    .produtoSugestao h2 {
+        left: 13px;
+    }
+    
+    
+    
+    .produtoSugestao input { 
+        left: 24px;
+    }
+    
+    .botoes {
+    }
+    
+    
+}
+
+@media screen and (min-width: 1270px) {
+    .descricoes p, .descricoes h2, .descricoes td, .descricoes label{
+        font-size: 12px;
+    }
+    
+    .descricoes td{
+        width: 175px;
+    }
+    
+    .botoes {
+        margin: 63px auto 0;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+	
+	.pagQuebraLinha{
+		width: 100%;
+	}
+}

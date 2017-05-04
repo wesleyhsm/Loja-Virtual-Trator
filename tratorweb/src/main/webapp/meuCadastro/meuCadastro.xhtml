@@ -1,0 +1,328 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:o="http://omnifaces.org/ui">
+	
+	<ui:define name="titulo">Meu Cadastro</ui:define>
+
+	<f:metadata>
+		<o:viewParam name="edede" />
+		<f:event listener="#{meuCadastroBean.inicializar}"
+			type="preRenderView" />
+	</f:metadata>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuCliente.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Área do Cliente" />
+					<span>Meu Cadastro</span>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<fieldset class="fildset">
+						<legend>Informações do Cliente</legend>
+						<p:outputLabel for="nomefantasia" value="Nome fantasia: "
+							class="block2" />
+						<p:outputLabel id="nomefantasia" maxlength="60"
+							value="#{meuCadastroBean.cliente.nmFantasia}"
+							class="tamanhoCampo" />
+
+						<div>
+							<p:outputLabel for="razaosocial" value="Razão social: "
+								class="block2" />
+							<p:outputLabel id="razaosocial" maxlength="60"
+								value="#{meuCadastroBean.cliente.nmRazaoSocial}"
+								class="tamanhoCampo" />
+						</div>
+
+						<div>
+							<p:outputLabel for="cpfcnpj" value="CPF/CNPJ: " class="block2" />
+							<p:outputLabel id="cpfcnpj"
+								value="#{meuCadastroBean.cliente.nmCnpjCpf}"
+								class="tamanhoCampo" />
+						</div>
+
+						<div>
+							<p:outputLabel for="ie" value="Inscrição Estadual/RG: "
+								class="block2" />
+							<p:outputLabel id="ie"
+								value="#{meuCadastroBean.cliente.nmInscricaoEstadual}"
+								class="tamanhoCampo" />
+						</div>
+
+						<div>
+							<p:outputLabel for="ip" value="Inscrição de produtor: "
+								class="block2" />
+							<p:outputLabel id="ip"
+								value="#{meuCadastroBean.cliente.nmInscricaoProdutor}"
+								class="tamanhoCampo" />
+						</div>
+
+						<div>
+							<p:outputLabel for="is" value="Inscrição suframa: "
+								class="block2" />
+							<p:outputLabel id="is"
+								value="#{meuCadastroBean.suframa.nmSuframa}"
+								class="tamanhoCampo" />
+						</div>
+						<div>
+							<p:outputLabel for="cg" value="Compre ganhe pontos: "
+								class="block2" />
+							<p:outputLabel id="cg"
+								value="#{meusPontosBean.pontosCompreGanheCliente()}"
+								class="tamanhoCampo" />
+						</div>
+					</fieldset>
+				</div>
+
+				<div class="ui-grid-col-12">
+					<fieldset class="fildset">
+						<legend>Endereço</legend>
+						<p:outputLabel for="rua" value="Rua: " class="block2" />
+						<p:outputLabel id="rua" value="#{meuCadastroBean.endereco.nmRua}"
+							class="tamanhoCampo" />
+
+						<div>
+							<p:outputLabel for="bairro" value="Bairro: " class="block2" />
+							<p:outputLabel id="bairro"
+								value="#{meuCadastroBean.endereco.nmBairro}"
+								style="width: 190px;" />
+
+							<p:outputLabel for="numero" value=" Nº " />
+							<p:outputLabel id="numero"
+								value="#{meuCadastroBean.endereco.nmNumero}"
+								style="width: 70px;" />
+						</div>
+
+						<div>
+							<p:outputLabel for="cep" value="CEP: " class="block2" />
+							<p:outputLabel id="cep" value="#{meuCadastroBean.endereco.nmCep}"
+								style="width: 85px;" />
+
+							
+
+						</div>
+
+						<div>
+							<p:outputLabel for="cid" value="Cidade: " class="block2" />
+							<p:outputLabel id="cid"
+								value="#{meuCadastroBean.endereco.nmCidade}"
+								class="tamanhoCampo" />
+								<p:outputLabel value=" - " />
+								<p:outputLabel id="uf" value="#{meuCadastroBean.estado.sgEstado}" />
+						</div>
+						<div>
+							<p:outputLabel for="ct" value="Complemento: " class="block2" />
+							<p:outputLabel id="ct"
+								value="#{meuCadastroBean.endereco.nmComplemento}"
+								class="tamanhoCampo" />
+						</div>
+					</fieldset>
+				</div>
+
+				<!-- Emails -->
+				<div class="ui-grid-col-12">
+					<fieldset class="fildset">
+						<legend>E-mail</legend>
+
+						<div class="ui-grid-col-12">
+							<h:form id="formemail">
+								<p:dataTable id="tableemail" var="mail"
+									value="#{meuCadastroBean.listEmail}" paginator="true" rows="5"
+									paginatorPosition="bottom"
+									emptyMessage="Nenhum item cadastrado.">
+
+									<p:column headerText="E-mail">
+										<h:outputText value="#{mail.nmEmail}" />
+									</p:column>
+
+									<p:column headerText="Ações" style="width: 70px;">
+										<p:commandButton class="botaoAzul" title="Editar E-mail"
+											update=":novomail"
+											action="#{meuCadastroBean.editarEmail(mail)}"
+											icon="ui-icon-pencil" />
+										<p:commandButton class="botaoAzul" title="Remover E-mail"
+											update=":novomail:msgnovomail @form" icon="ui-icon-trash"
+											action="#{meuCadastroBean.removerEmail(mail)}">
+											<p:confirm header="Excluir E-mail"
+												message="Você tem certeza?" icon="ui-icon-alert" />
+										</p:commandButton>
+									</p:column>
+								</p:dataTable>
+
+								<p:confirmDialog global="true" showEffect="fade">
+									<p:commandButton value="Sim" type="button"
+										styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+									<p:commandButton value="Não" type="button"
+										styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+								</p:confirmDialog>
+
+							</h:form>
+						</div>
+
+						<div class="ui-grid-col-12">
+							<h:form id="novomail">
+								<p:messages id="msgnovomail" autoUpdate="false" closable="true"
+									style="text-align: left;" />
+
+								<div class="ui-grid-col-5">
+									<p:outputLabel for="novoemail" value="E-mail: " class="block2" />
+									<p:inputText id="novoemail" maxlength="60"
+										value="#{meuCadastroBean.email.nmEmail}" class="tamanhoCampo" />
+
+								</div>
+								<div class="ui-grid-col-5">
+									<p:outputLabel for="nomecontato" value="Nome Contato: "
+										class="block2" />
+									<p:inputText id="nomecontato" maxlength="60"
+										value="#{meuCadastroBean.email.nmContato}"
+										class="tamanhoCampo" />
+								</div>
+								<div class="ui-grid-col-2">
+									<p:commandButton update=":formemail:tableemail @form"
+										action="#{meuCadastroBean.salvarNovoEmail()}"
+										class="blue button" value="Salvar" />
+								</div>
+							</h:form>
+						</div>
+					</fieldset>
+				</div>
+
+				<!-- Telefones -->
+				<div class="ui-grid-col-12">
+					<fieldset class="fildset">
+						<legend>Telefones</legend>
+
+						<div class="ui-grid-col-12">
+							<h:form id="formfone">
+								<p:dataTable id="tablefone" var="fone"
+									value="#{meuCadastroBean.listTelefones}" paginator="true"
+									rows="5" paginatorPosition="bottom"
+									emptyMessage="Nenhum item cadastrado.">
+
+									<p:column headerText="Numero" style="width: 150px;">
+										<h:outputText value="#{fone.nmTelefone}" />
+									</p:column>
+
+									<p:column headerText="Nome Contato">
+										<h:outputText value="#{fone.nmContato}" />
+									</p:column>
+
+									<p:column headerText="Ações" style="width: 70px;">
+										<p:commandButton class="botaoAzul" title="Editar Telefone"
+											update=":novotele"
+											action="#{meuCadastroBean.editarTelefone(fone)}"
+											icon="ui-icon-pencil" />
+										<p:commandButton class="botaoAzul" title="Remover Telefone"
+											update=":novotele:msgnovotele @form" icon="ui-icon-trash"
+											action="#{meuCadastroBean.removerTelefone(fone)}">
+											<p:confirm header="Excluir Telefone"
+												message="Você tem certeza?" icon="ui-icon-alert" />
+										</p:commandButton>
+									</p:column>
+								</p:dataTable>
+
+								<p:confirmDialog global="true" showEffect="fade">
+									<p:commandButton value="Sim" type="button"
+										styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+									<p:commandButton value="Não" type="button"
+										styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+								</p:confirmDialog>
+							</h:form>
+						</div>
+
+						<div class="ui-grid-col-12">
+							<h:form id="novotele">
+
+								<p:messages id="msgnovotele" autoUpdate="false" closable="true"
+									style="text-align: left;" />
+
+								<div class="ui-grid-col-5">
+									<p:outputLabel for="num" value="Numero: " class="block2" />
+									<p:inputMask mask="(99) 99999-999?9" id="num"
+										value="#{meuCadastroBean.telefone.nmTelefone}"
+										class="tamanhoCampo" />
+
+								</div>
+								<div class="ui-grid-col-5">
+									<p:outputLabel for="telcontato" value="Nome Contato: "
+										class="block2" />
+									<p:inputText id="telcontato" maxlength="60"
+										value="#{meuCadastroBean.telefone.nmContato}"
+										class="tamanhoCampo" />
+								</div>
+
+								<div class="ui-grid-col-2">
+									<p:commandButton update=":formfone:tablefone @form"
+										action="#{meuCadastroBean.salvarNovoTelefone()}"
+										class="blue button" value="Salvar" />
+								</div>
+							</h:form>
+						</div>
+
+					</fieldset>
+				</div>
+
+
+				<div class="ui-grid-col-12">
+					<fieldset class="fildset password">
+						<legend>Usuário e Senha</legend>
+
+						<div class="ui-grid-col-12" style="margin-bottom: 15px;">
+							<p:outputLabel for="login" value="Usuario: " class="bold" />
+							<p:outputLabel id="login" value="#{loginBean.login.nmLogin}"
+								class="tamanhoCampo" />
+						</div>
+
+
+						<h:form>
+							<div class="ui-grid-col-12">
+								<p:messages id="msgsenha" autoUpdate="false" closable="true" />
+							</div>
+
+							<div class="ui-grid-col-12">
+								<p:outputLabel for="atual" value="Senha atual:" class="block3" />
+								<p:password id="atual"
+									value="#{meuCadastroBean.filtroAlterarSenha.senhaAtual}"
+									class="tamanhoCampo" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel for="novasenha1" value="Nova senha:"
+									class="block3" />
+								<p:password id="novasenha1"
+									value="#{meuCadastroBean.filtroAlterarSenha.novaSenha1}"
+									match="novasenha2" class="tamanhoCampo" feedback="true" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:outputLabel for="novasenha2" value="Confirmar senha:"
+									class="block3" />
+								<p:password id="novasenha2"
+									value="#{meuCadastroBean.filtroAlterarSenha.novaSenha2}"
+									class="tamanhoCampo" />
+							</div>
+							<div class="ui-grid-col-12">
+								<p:commandButton update="@form"
+									action="#{meuCadastroBean.alterarSenha()}" class="blue button"
+									value="Alterar" style="display: inline" />
+							</div>
+						</h:form>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

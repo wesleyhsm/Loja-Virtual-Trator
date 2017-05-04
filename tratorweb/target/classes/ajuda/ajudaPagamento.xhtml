@@ -1,0 +1,42 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Ajuda : Pagamentos</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuAjuda.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="ajuda">
+			
+			<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Ajuda" />
+					<span>Pagamento</span>
+				</div>
+
+								<h2>Boletos</h2>
+
+<p>O boleto Banco do Brasil é gerado e enviado via e-mail para quitação das compras com pagamento antecipado. Nos negócios a prazo, é encaminhado após a emissão da Nota Fiscal.  Ainda no pagamento antecipado, a reserva dos produtos estão garantidas por até 48hrs após a reserva das mesmas e após, serão suspensas automaticamente e o pedido considerado cancelado.</p>
+
+
+<h2>Depósitos Bancários: </h2>
+
+<p>Para qualquer tipo de pagamento utilizar a conta Banco do Brasil Agência 6920-5 C/C 25625-0.</p>
+<p>Ainda não estamos trabalhando com cartões de crédito.</p>
+<p>Para pagamento em dinheiro, por gentileza, se possível, fazer o depósito em conta corrente.</p>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

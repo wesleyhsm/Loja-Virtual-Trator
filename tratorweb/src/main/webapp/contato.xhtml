@@ -1,0 +1,103 @@
+<ui:composition template="index.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+	<ui:define name="headLogin">
+	</ui:define>
+	<ui:define name="conteudoIndex">
+
+		<div id="contact" class="boxBoth container">
+			<div class="ui-grid-col-12">
+				<h2>Contato</h2>
+			</div>
+
+			<h:form id="contato" class="ui-grid-col-6">
+
+
+				<div class="linhaFloat"></div>
+
+				<p:messages autoUpdate="false" closable="true" id="msgcontato" />
+
+
+				<div class="ui-grid-col-12">
+					<p:outputLabel for="nomecontato" value="Nome: "
+						class="labelVertical" />
+					<p:inputText id="nomecontato" maxlength="60"
+						value="#{contatoBean.contato.nmNome}"
+						class="textVertical textPadding" required="true" />
+				</div>
+				<div class="ui-grid-col-12">
+					<p:outputLabel for="emailcontato" value="E-mail: "
+						class="labelVertical" />
+					<p:inputText id="emailcontato" maxlength="60"
+						value="#{contatoBean.contato.nmEmail}"
+						class="textVertical textPadding" required="true" />
+				</div>
+				<div class="ui-grid-col-12">
+					<p:outputLabel for="contatotelefone" value="Telefone: "
+						class="labelVertical" />
+					<p:inputMask id="contatotelefone"
+						value="#{contatoBean.contato.nmTelefone}"
+						class="textVertical textPadding phonemask" required="true" />
+				</div>
+				<div class="ui-grid-col-12">
+					<p:outputLabel for="contatocelular" value="Celular: "
+						class="labelVertical" />
+					<p:inputMask id="contatocelular" mask="(99) ?99999-9999"
+						value="#{contatoBean.contato.nmCelular}"
+						class="textVertical textPadding" />
+				</div>
+				<div class="ui-grid-col-12">
+					<p:outputLabel for="descricaocontato" value="Descrição: "
+						class="labelVertical" />
+					<p:inputTextarea id="descricaocontato"
+						value="#{contatoBean.contato.nmDescricao}"
+						class="textVertical textPadding" rows="7" counter="display"
+						maxlength="500" counterTemplate="{0} caracteres restantes."
+						required="true" />
+					<h:outputText id="display"
+						style="font-family: helvetica; font-size: 12px;" />
+				</div>
+
+
+				<div class="ui-grid-col-12">
+					<div class="ui-grid-col-8" style="margin-top: 30px;">
+						<span class="ui-outputlabel-rfi">*</span> Campos Obrigatórios
+					</div>
+					<div class="ui-grid-col-4">
+						<p:commandButton update="@form" action="#{contatoBean.salvar()}"
+							class="botaoAzul" value="ENVIAR" span="false" />
+					</div>
+				</div>
+
+			</h:form>
+
+			<div class="ui-grid-col-5 right">
+				<span class="text">Encontre outras formas parar entrar em
+					contato com a Agro-Fauna!</span>
+
+				<p>Endereço</p>
+				<span class="text">Rua Doutor Coutinho Cavalcanti, 1171<br />
+					Jardim América, São José do Rio Preto - SP<br />
+					CEP 15055-300
+				</span>
+							
+				<p>Telefones</p>
+				<span class="text">(17) 3224.1233 / 3022.2300 / 3223.6211</span>
+
+				<p>E-mail</p>
+				<span class="text">faleconosco@agrofauna.com.br</span>
+
+				<p>WhatsApp</p>
+				<span class="text">(17) 98164.7582 / 99215-4134</span>				
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+
+

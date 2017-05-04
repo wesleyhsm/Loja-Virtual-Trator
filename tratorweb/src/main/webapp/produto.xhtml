@@ -1,0 +1,117 @@
+<ui:composition template="index.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+	<ui:define name="headLogin">
+		<style>
+.textPadding {
+	padding: 3px;
+}
+</style>
+	</ui:define>
+	<ui:define name="conteudoIndex">
+
+		<div id="produtos" class="container">
+
+			<div class="ui-grid-col-12">
+				<h2>Produtos</h2>
+			</div>
+
+			<!-- FILTRO -->
+			<h:form class="filtro ui-grid-col-12">
+				<div class="ui-grid-col-1">
+					<span class="title">Buscar</span>
+				</div>
+				<div class="ui-grid-col-3">
+					<div class="ui-grid-col-12">Nome do Produto</div>
+					<p:autoComplete maxResults="10" minQueryLength="2"
+						placeholder="Nome do produto"
+						value="#{produtoBean.filtroPesquisaProdutoIndex.nomeProduto}"
+						completeMethod="#{produtoBean.completeNomeProduto}" />
+				</div>
+				<div class="ui-grid-col-3">
+					<div class="ui-grid-col-12">Princípio Ativo</div>
+					<p:autoComplete maxResults="10" minQueryLength="2"
+						placeholder="Princípio Ativo"
+						value="#{produtoBean.filtroPesquisaProdutoIndex.nomePrincipioAtivo}"
+						completeMethod="#{produtoBean.completeNomePrincipioAtivo}" />
+				</div>
+				<div class="ui-grid-col-4">
+					<div class="ui-grid-col-12">Ordenação</div>
+					<p:selectOneMenu id="ordem" value="#{produtoBean.filtroPesquisaProdutoIndex.ordenacao}">
+						<f:selectItem itemLabel="Nome Crescente (A-Z)" itemValue="1" />
+						<f:selectItem itemLabel="Nome Decrescente (Z-A)" itemValue="2" />
+						<f:selectItem itemLabel="Princípio Crescente (A-Z)" itemValue="3" />
+						<f:selectItem itemLabel="Princípio Decrescente (Z-A)" itemValue="4" />
+					</p:selectOneMenu>
+				</div>
+				<div class="ui-grid-col-1" style="float: right;">
+					<p:commandButton
+						update=":contato:dtproduto :contato:msgProduto @form"
+						value="FILTRAR" class="botaoAzul"
+						action="#{produtoBean.mensagemFiltro()}"
+						style="display: inline-block; margin: 10px 0;" />
+				</div>
+
+			</h:form>
+
+			<!-- PRODUTOS TABELA -->
+			<div class="ui-grid-col-12">
+
+				<h:form id="contato">
+					<div class="linhaFloat">
+						<p:messages id="msgProduto" autoUpdate="false" closable="true" />
+
+						<p:dataTable id="dtproduto" var="pro" value="#{produtoBean.model}"
+							lazy="true" paginator="true" rows="50" paginatorPosition="both"
+							class="tabelaConvencional" emptyMessage="Nenhum item cadastrado.">
+
+							<p:column headerText="Produtos">
+								<h:outputText value="#{pro.nmProduto}" />
+							</p:column>
+
+							<p:column headerText="Princípios Ativos">
+								<h:outputText
+									value="#{pro.produtoDadosTecnicos.principioAtivo.nmPrincipioAtivo}" />
+							</p:column>
+
+							<p:column headerText="Imagens" style="width: 80px;">
+								<p:commandLink update=":contato:galeria"
+									oncomplete="PF('dialogImagem').show()"
+									action="#{produtoBean.buscarImagemProduto(pro)}" class="zoom">
+									<h:graphicImage
+										url="#{request.contextPath}/../resources/img/trator-seach-icon.png" />
+								</p:commandLink>
+							</p:column>
+						</p:dataTable>
+
+
+						<p:dialog widgetVar="dialogImagem" header="Imagens do Produto"
+							modal="true" resizable="false" showHeader="true"
+							style="margin-bottom: 500px !important;">
+
+							<p:galleria id="galeria"
+								value="#{produtoBean.listProdutoImagens}" var="image"
+								panelWidth="250" panelHeight="263" showCaption="true">
+
+								<p:graphicImage url="#{image.nmLink}"
+									title="#{image.nmProdutoImagem}" style="height:263px;" />
+
+							</p:galleria>
+						</p:dialog>
+
+					</div>
+				</h:form>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+
+

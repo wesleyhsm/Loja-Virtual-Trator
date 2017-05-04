@@ -1,0 +1,66 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Ajuda : Frete</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuAjuda.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="ajuda">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Ajuda" />
+					<span>Frete</span>
+				</div>
+
+				<h2>Pedido mínimo de R$ 1000,00.</h2>
+
+				<h2>Despacho até São Paulo- SP</h2>
+
+				<p>1 - Pedidos acima de R$ 4.000,00 o frete é grátis.</p>
+
+				<h2>Redespacho Nacional:</h2>
+
+				<p>1 - O cliente assume a responsabilidade do custo. Temos o
+					acréscimo do frete até São Paulo para pedidos menores que R$
+					4.000,00.</p>
+
+				<p>2 - O cliente opta pela cotação a ser realizada para ele:</p>
+
+				<p>2.1 - A cotação será feita pela Agro-Fauna.</p>
+
+				<p>2.2 - Cotaremos apenas com transportadoras aptas a manipular
+					produtos químicos.</p>
+
+				<p>2.3 - O valor do frete poderá ser inserido no pedido.
+					Mandaremos um e-mail para o cliente, caso ele aceite o valor cotado
+					pelos nossos vendedores, estaremos no aguardo da confirmação do
+					pedido via e-mail.</p>
+
+				<p>2.4 - O valor do frete poderá não ser inserido no valor do
+					pedido. Mandaremos um e-mail da mesma forma mencionada acima para o
+					cliente, com a cotação feita pelos nossos vendedores, caso
+					concorde, geraremos o boleto somente com o valor do pedido e
+					mandaremos pela transportadora indicada a qual o cliente deverá
+					pagar.</p>
+
+				<p>2.5 - Caso o cliente possua tabela com alguma transportadora
+					autorizada a manipular produtos químicos, favor informar aos nossos
+					vendedores para facilitar os cadastros dos pedidos.</p>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

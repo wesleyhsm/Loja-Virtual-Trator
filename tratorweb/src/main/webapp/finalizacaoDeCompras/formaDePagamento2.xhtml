@@ -1,0 +1,64 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    <ui:define name="titulo">Forma de Pagamento</ui:define>
+    
+    <ui:define name="conteudo">
+
+		<div id="menuLeft" class="ui-grid-col-2">
+
+			<ui:include src="../elements/encomenda.xhtml" />
+
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio pagamento" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Finalizar Compra" />
+					<span>Forma de Pagamento</span>
+				</div>
+
+        	<h:form id="frmPagamento2">
+	                <fieldset class="fildset">
+	                    <legend>Forma de Pagamento</legend>
+	                    <div style="width: 85%;">
+	                        <p:outputPanel id="customPanel" style="margin: 0 0 0 30px; ">
+	                            <p:selectOneRadio requiredMessage="Selecione a forma de Pagamento." required="true" id="customRadio" value="#{formaPagamentoBean.formaPagamento.idFormaPagamento}" layout="custom">
+	                                <f:selectItem itemLabel="pontos" itemValue="7"/>	                                
+	                            </p:selectOneRadio>
+	
+	                            <h:panelGrid columns="2" cellpadding="5">
+	                                <p:radioButton id="opt1" for="customRadio" itemIndex="0"/>
+	                                <h:outputLabel for="opt1" value="Pontos Compre Ganhe" />
+	
+	                                <h:inputHidden/>
+	                                <h:outputLabel styleClass="fontSize13" value="Seus pontos sera debitado assim que o pedido for faturado."/>	                                
+	                            </h:panelGrid>
+	                        </p:outputPanel>
+	                    </div>
+	                    
+	                </fieldset>
+	                
+	                <div class="boxMargemPadrao boxBoth">
+	                    <p:commandButton rendered="#{formaPagamentoBean.liberaBotaoBaixarPedido == false}" update=":carrinho:boxcarrinho :frmPagamento2" action="#{formaPagamentoBean.finalizarPedido()}" value="Finalizar Compra" class="blue right"/>
+	                    
+	                    <p:button rendered="#{formaPagamentoBean.liberaBotaoBaixarPedido == false}" outcome="/finalizacaoDeCompras/freteCompreGanhe.xhtml" value="Voltar" class="blue right"/>
+                    
+	                    <p:button rendered="#{formaPagamentoBean.liberaBotaoBaixarPedido}" outcome="/minhasCompras/minhasCompras.xhtml" value="Voltar Minhas Compras" class="blue right"/>
+	                    <br/>
+	                </div>
+	                <p:messages autoUpdate="false" closable="true"  style="width: 100%; margin: 30px 0 0 0;" />
+	    	</h:form>
+	    	
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

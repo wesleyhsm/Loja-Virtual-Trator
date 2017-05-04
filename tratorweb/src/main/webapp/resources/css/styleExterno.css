@@ -1,0 +1,574 @@
+::-webkit-input-placeholder {font-size: 12px; margin-top: -3px;}
+:-moz-placeholder {font-size: 12px; margin-top: -3px;}
+::-moz-placeholder {font-size: 12px; margin-top: -3px;}
+:-ms-input-placeholder {font-size: 12px; margin-top: -3px;}
+
+/* padrao */
+.right {
+	float: right;
+}
+
+button span {
+	color: #FFF !important;
+}
+
+#produtos .ui-column-title {
+	color: #FFF;
+}
+
+label.textPadding {
+	padding: 0 !important;
+	margin-bottom: 4px !important;
+}
+
+/* s index */
+.boxMargemPadrao30 {
+	margin: 30px 0;
+	color: #606060;
+}
+
+.boxMargemPadrao input {
+	display: block;
+	width: 100%;
+	padding: 5px 0;
+}
+
+.boxLogin {
+	width: 100%;
+	border: 1px solid #184E9B;
+	border-radius: 5px;
+	margin: 5% 0;
+	text-align: center;
+	float: right;
+	max-width: 350px;
+	padding-bottom: 10px;
+}
+
+.boxLoginInterno {
+	padding: 10px;
+	height: 140px;
+	display: inline-block;
+}
+
+.inputLogin {
+	display: block;
+}
+
+#cabecalho .boxBoth .menuNavHor ul a {
+	width: 25%;
+}
+
+#rodape ul a {
+	text-decoration: none;
+}
+
+#rodape ul a li {
+	display: inline;
+	font-size: 10px;
+	color: white;
+	padding: 0 6%;
+	border-right: 1px solid #ffffff;
+}
+
+#rodape button span {
+	padding: 1px 4px;
+}
+
+.textPadding {
+	padding: 3px;
+}
+/* e index */
+* {
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: #ccc !important;
+}
+
+body {
+	max-width: 1920px !important;
+	margin: 0 auto;
+}
+
+.box {
+	text-align: center;
+}
+
+.boxBoth {
+	clear: both;
+}
+
+div.index p {
+	font-size: 15px;
+	text-align: justify;
+	margin: 0 0 20px 0;
+	line-height: 1.3;
+}
+
+.boxFloat {
+	float: left;
+	margin: 0 0 0 5px;
+}
+
+#container, .container {
+	margin: 0 auto;
+	width: 992px !important;
+	min-width: 992px !important;
+}
+
+.clear {
+	clear: both;
+}
+
+/*CABECALHO ====================================================================
+*/
+#entrar .item {
+	text-align: center;
+	width: 100%;
+	margin-top: 5px;
+}
+
+#entrar\:tipo_label {
+	height: 20px;
+	font-weight: semibold;
+}
+
+#entrar label.title {
+	font-size: 22px;
+	width: 100%;
+	text-align: center;
+}
+
+#entrar label.desc {
+	font-size: 16px;
+	display: inline-block;
+	width: 82px;
+	text-align: right;
+	height: 20px;
+	vertical-align: bottom;
+	color: #184e9b;
+	margin-right: 3px;
+}
+
+#entrar input {
+	padding: 3px 6px;
+	font-size: 16px;
+	display: inline;
+	width: 153px;
+	text-align: left;
+}
+
+#entrar .ui-selectonemenu.ui-state-default {
+	padding: 7px 6px 7px !important;
+	width: 153px !important;
+	height: 13px;
+	font-size: 14px !important;
+}
+
+#entrar .ui-selectonemenu-trigger {
+	width: auto !important;
+}
+
+#entrar a.password {
+	margin: 3px 0 0 34px;
+	display: block;
+	text-decoration: none;
+	display: block;
+	font-size: 12px;
+}
+
+#entrar button {
+	color: #FFF;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+#entrar button span {
+	color: #FFF;
+}
+
+#cabecalho {
+	position: relative;
+	background: url('../img/trator-agro-fauna-topo.jpg') center no-repeat;
+	height: 250px;
+	position: relative;
+}
+
+#cabecalho .fone {
+	position: relative;
+	height: 230px;
+	float: left;
+	margin: 20px 0 0 0;
+}
+
+#cabecalho .logo img {
+	width: 100%;
+}
+
+#cabecalho .logo {
+	width: 25%;
+	max-width: 195px;
+	margin: 0 0 2px 0;
+}
+
+#cabecalho .fone-ddd {
+	font-size: 15px;
+	margin: 0 5px;
+	bottom: 21px;
+}
+
+#cabecalho .fone-number {
+	font-size: 24px;
+	bottom: 15px;
+}
+
+#cabecalho .fone img {
+	float: left;
+	width: 35px;
+	bottom: 15px;
+}
+
+#cabecalho .fone label {
+	color: #ffffff;
+	font-weight: bold;
+}
+
+#cabecalho .boxBoth {
+	position: relative;
+	float: left;
+	width: 100%
+}
+
+#cabecalho .boxBoth .menuNavHor ul {
+	width: 100%;
+	height: 40px;
+}
+
+#cabecalho .boxBoth .menuNavHor ul {
+	margin: 0 auto;
+}
+
+#cabecalho .boxBoth .menuNavHor ul li a {
+	float: left;
+	width: 25%;
+	font-size: 14px;
+	padding: 13px 0;
+	font-weight: bold;
+	color: #FFF;
+	transition: 1s;
+	text-align: center
+}
+
+.metade {
+	position: relative;
+	width: 50%;
+	float: left;
+}
+
+.metade .cadastro {
+	display: block;
+	text-decoration: none;
+	font-size: 12px;
+	margin-bottom: 3px;
+}
+
+/* SOBRE */
+#about h2, #buscaCep h2, #produtos h2, #contact h2, #senha h2 {
+	color: #184e9b;
+	font-size: 28px;
+	margin-bottom: 20px;
+}
+
+#about .content {
+	width: 100%;
+	text-align: justify;
+	font-weight: normal;
+}
+
+#cabecalho .boxBoth .menuNavHor ul li a:hover {
+	background: #275daa;
+	color: #FFF;
+}
+
+#cabecalho .boxBoth .menuNavHor ul li.selecionado {
+	color: #184e9b;
+}
+
+.paineisDireita {
+	width: 25%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/* CADASTRAR */
+#buscaCep .fontAzul {
+	font-size: 28px;
+	font-weight: semibold;
+	margin-bottom: 20px;
+	float: left;
+}
+
+#buscaCep .ui-grid-col-6, #precadastro .ui-grid-col-6, #contact .ui-grid-col-12,
+	#senha .ui-grid-col-12 {
+	margin: 0 0 12px 0;
+	float: left;
+	clear: none;
+}
+
+#buscaCep .labelVertical, #precadastro .labelVertical, #contact .labelVertical,
+	#senha .labelVertical
+.filtro .labelVertical {
+	float: left;
+	margin-bottom: 5px;
+}
+
+#buscaCep .ui-selectonemenu.ui-state-default, #precadastro .ui-selectonemenu.ui-state-default,
+	#senha .ui-selectonemenu.ui-state-default, .filtro  .ui-selectonemenu.ui-state-default
+	{
+	width: calc(100% - 18px) !important;
+	float: left;
+	clear: both;
+}
+
+#precadastroui-selectonemenu-label ui-inputfield ui-corner-all,
+	#precadastro .ui-selectonemenu label.ui-selectonemenu-label {
+	padding: 4px !important;
+}
+
+.filtro .ui-selectonemenu label.ui-selectonemenu-label {
+	padding: 7px !important;
+}
+
+#buscaCep .ui-icon, #precadastro .ui-icon, #senha .ui-icon {
+	margin-top: 8px;
+}
+
+#precadastro button, #contact button, #senha button {
+	margin: 20px 0;
+	float: right;
+	padding: 5px;
+	border-radius: 3px !important;
+	color: #FFF !important;
+}
+
+#buscaCep input, #precadastro input, #senha input {
+	width: 95%;
+	padding: 4px;
+}
+
+.filtro input {
+	width: 90% !important;
+	padding: 4px;
+}
+
+#buscaCep .ui-outputlabel-rfi, #precadastro .ui-outputlabel-rfi,
+	#contact .ui-outputlabel-rfi, #senha .ui-outputlabel-rfi {
+	color: red !important;
+}
+
+/* FILTRO / FILTRAR */
+.filtro {
+	margin-bottom: 15px;
+	float: left;
+}
+
+.filtro .ui-grid-col-12 {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	float: left;
+}
+
+.filtro button {
+	position: relative;
+	float: right !important;
+	margin: 17px 0 0 15px !important;
+	border-radius: 3px !important;
+	padding: 2px !important;
+}
+
+.filtro .ui-grid-col-1 span.title {
+	float: left;
+	position: relvative;
+	margin-top: 17px;
+	font-weight: bold;
+}
+
+.filtro .ui-autocomplete {
+	width: 100%;
+}
+
+/* PRODUTOS */
+#produtos h3 {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 3px 0 15px 15px;
+}
+
+#produtos button {
+	width: 100%;
+	text-align: center;
+	background: transparent;
+	border: 0 !important;
+}
+
+#produtos button:hover {
+	text-shadow: 0 !important;
+}
+
+#produtos .ui-button-icon-only .ui-button-text {
+	padding: 0 !important;
+	font-size: 10px;
+}
+
+#produtos p {
+	text-align: justify;
+	margin: 0 0 0 15px;
+	line-height: 1.3;
+}
+
+#produtos .zoom {
+	float: left;
+	width: 100% !important;
+	text-align: center;
+}
+
+#produtos .zoom img {
+	margin: 3px 0 0;
+	height: 14px;
+}
+
+#produtos .ui-column-title {
+	font-size: 14px;
+}
+
+/* MODAL */
+#produtos .ui-dialog {
+	margin: 0 !important;
+}
+
+#produtos .ui-dialog-titlebar {
+	background: #14458C;
+}
+
+#produtos .ui-dialog-title {
+	margin: 0;
+	padding: 5px 0;
+	color: #E1E1E1;
+	font-weight: bold;
+}
+
+/* CONTATO - CONTACT */
+#contact input, #contact textarea {
+	width: calc(100% - 12px);
+	padding: 6px;
+}
+
+#contact p {
+	float: left;
+	width: 100%;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#contact span.text, #senha span.text {
+	float: left;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+/* SENHA */
+#senha .ui-selectonemenu.ui-state-default {
+	width: calc(100% - 9px) !important;
+}
+
+#senha .ui-selectonemenu-label {
+	width: 100%;
+	padding: 6px;
+}
+/* RODAPE */
+.fundo-rodape {
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	height: 220px !important;
+	color: white;
+	font-size: 8pt;
+	background-position: center;
+	background-repeat: no-repeat;
+	background: #2868C7;
+	text-align: right;
+	text-decoration: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	background: url(../img/rodape-trator-agro-fauna.jpg) center no-repeat
+		#1c72d5;
+}
+
+.fundo-rodape .width50 {
+	float: left;
+	position: relative;
+	width: 50%;
+	margin-top: 10px;
+}
+
+.fundo-rodape .width25 {
+	float: right;
+	position: relative;
+	width: 23%;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.fundo-rodape .title {
+	float: left;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 5px 0;
+	color: #FFF;
+}
+
+.fundo-rodape .link_rodape a {
+	float: left;
+	width: 100%;
+	margin-top: 6px;
+	text-align: left;
+	font-size: 12px;
+	color: #FFF;
+}
+
+.fundo-rodape .divisor {
+	float: left;
+	background: #61b1df;
+	height: 1px;
+	width: 90%;
+}
+
+#rodape {
+	clear: both;
+	width: 100%;
+	height: 130px;
+	box-shadow: inset 0px 3px 3px 0px rgba(50, 50, 50, 0.62);
+	position: relative;
+}
+
+#rodape .menuNavHor ul {
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px 0 0;
+}
+
+#rodape .menuNavHor ul a {
+	float: left;
+	width: 14%;
+	text-align: center;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#rodape .menuNavHor ul a li {
+	padding: 5px;
+	border-left: 1px solid #FFF;
+	font-size: 8px;
+}

@@ -1,0 +1,341 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	<ui:define name="titulo">Trator : Compre e Ganhe</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="meuCadastro" class="ui-grid-col-10 carrinho"
+			style="padding-right: 15px;">
+
+			<div class="ui-grid-col-12">
+				<fieldset class="fildset">
+					<legend>Trator de Compra - Comum</legend>
+					<h:form id="formnormal">
+						<p:dataTable id="dtcarrinho" var="carrinhoCompras"
+							value="#{carrinhoDeComprasBean.listCarrinhoCompras()}"
+							paginator="true" rows="10" paginatorPosition="bottom"
+							emptyMessage="Nenhum item adicionado.">
+							<p:column headerText="Produto">
+								<h:outputText id="nomeproduto"
+									value="#{carrinhoCompras.nomeProduto}" />
+							</p:column>
+
+							<p:column headerText="Qtd de Caixas" style="width: 70px;">
+								<p:inputText class="qtdInput" id="qtdcompra1"
+									value="#{carrinhoCompras.qtdProduto}" size="4">
+									<p:ajax event="change" process="@this"
+										update=":formnormal:dtcarrinho :formnormal:vltotal :formnormal:msgComun"
+										listener="#{carrinhoDeComprasBean.adicionaProdutoNoCarrinho(carrinhoCompras)}" />
+								</p:inputText>
+							</p:column>
+
+							<p:column headerText="Valor Unitário" style="width: 100px;">
+								<h:outputText id="vlunitario"
+									value="#{carrinhoCompras.valorUnitario}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Qtd por Caixa"
+								style="width: 70px; text-align: center;">
+								<h:outputText id="qtdcaixa"
+									value="#{carrinhoCompras.qtdPorCaixa}" />
+							</p:column>
+
+							<p:column headerText="Valor Caixa" style="width: 100px;">
+								<h:outputText id="vlcaixa"
+									value="#{carrinhoCompras.qtdPorCaixa * carrinhoCompras.valorUnitario}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Sub Total" style="width: 115px;">
+								<h:outputText id="vlsubtotal"
+									value="#{carrinhoCompras.subTotal}" style="text-align: right;">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="" style="width: 32px;">
+								<p:commandButton
+									action="#{carrinhoDeComprasBean.removerProdutoCarrinho(carrinhoCompras)}"
+									class="botaoNone"
+									update=":formnormal:dtcarrinho :formnormal:vltotal"
+									title="Remover produto" icon="ui-icon-trash">
+
+									<p:confirm header="Excluir Produto" message="Você tem certeza?"
+										icon="ui-icon-alert" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+
+						<p:confirmDialog global="true" showEffect="fade">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+
+						<div class="ui-grid-col-12">
+							<div class="right total">
+								Total:
+								<h:outputText id="vltotal"
+									value="#{carrinhoDeComprasBean.totalConvencionalProdutoCarrinho()}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</div>
+						</div>
+
+						<!-- CONVENCIONAL colocar comande button verifica se tem produto e passa o o tipo de carrinho para finalizar -->
+						<div class="ui-grid-col-12">
+							<p:commandButton update="@form" ajax="false"
+								action="#{carrinhoDeComprasBean.botaoFinalizarCompraConvecional()}"
+								value="Finalizar Compra Comum" class="blue floatRight" />
+							<p:button outcome="/promocao/promocaoIndex.xhtml" value="Voltar"
+								class="blue floatRight" />
+						</div>
+						<div class="ui-grid-col-12">
+							<p:messages id="msgComun" autoUpdate="false" closable="true" style="width: 100%;" />
+						</div>
+
+					</h:form>
+				</fieldset>
+			</div>
+
+			<!-- CARRINHO ENCOMENDA -->
+			<div class="ui-grid-col-12">
+				<fieldset class="fildset">
+					<legend>Trator de Compra - Encomenda</legend>
+					<h:form id="formencomenda">
+						<p:dataTable id="dtencomenda" var="carrinhoCompras"
+							value="#{carrinhoDeComprasEncomendaBean.listCarrinhoCompras()}"
+							paginator="true" rows="10" paginatorPosition="bottom"
+							emptyMessage="Nenhum item adicionado.">
+							<p:column headerText="Produto">
+								<h:outputText id="nomeproduto"
+									value="#{carrinhoCompras.nomeProduto}" />
+							</p:column>
+
+							<p:column headerText="Qtd de Caixas" style="width: 70px;">
+								<p:inputMask class="qtdInput" id="qtdcompra2"
+									value="#{carrinhoCompras.qtdProduto}" size="4">
+									<p:ajax event="change" process="@this"
+										update=":formencomenda:dtencomenda :formencomenda:vltotali :formencomenda:vltotalf :formencomenda:msgEncomenda"
+										listener="#{carrinhoDeComprasEncomendaBean.adicionaProdutoNoCarrinho(carrinhoCompras)}" />
+								</p:inputMask>
+							</p:column>
+
+							<p:column headerText="Valor Unitário" style="width: 100px;">
+								<h:outputText value="Entre "
+									style="font-size: 12px; float: left; margin-right: 3px;" />
+								<h:outputText id="vlunitarioi"
+									value="#{carrinhoCompras.valorUnitario / carrinhoCompras.classificaPrecoEncomenda}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+								<h:outputText value="e"
+									style="clear: left; font-size: 12px; float: left; margin-right: 3px;" />
+								<h:outputText id="vlunitariof"
+									value="#{(carrinhoCompras.valorUnitario / carrinhoCompras.classificaPrecoEncomenda) / carrinhoCompras.classificaPrecoEncomenda}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Qtd por Caixa"
+								style="width: 70px; text-align: center;">
+								<h:outputText id="qtdcaixa"
+									value="#{carrinhoCompras.qtdPorCaixa}" />
+							</p:column>
+
+							<p:column headerText="Valor Caixa" style="width: 100px;">
+								<h:outputText value="Entre "
+									style="font-size: 12px; float: left; margin-right: 3px;" />
+								<h:outputText id="vlcaixai"
+									value="#{(carrinhoCompras.qtdPorCaixa * carrinhoCompras.valorUnitario) / carrinhoCompras.classificaPrecoEncomenda}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+								<h:outputText value="e "
+									style="font-size: 12px; float: left; margin-right: 3px; clear: left;" />
+								<h:outputText id="vlcaixaf"
+									value="#{((carrinhoCompras.qtdPorCaixa * carrinhoCompras.valorUnitario) / carrinhoCompras.classificaPrecoEncomenda) / carrinhoCompras.classificaPrecoEncomenda}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Sub Total" style="width: 130px;">
+								<h:outputText value="Entre "
+									style="font-size: 12px; float: left; margin-right: 3px;" />
+								<h:outputText id="vlsubtotali"
+									value="#{carrinhoCompras.subTotal / carrinhoCompras.classificaPrecoEncomenda}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+								<h:outputText value="e"
+									style="font-size: 12px; float: left; margin-right: 3px; clear: left;" />
+								<h:outputText id="vlsubtotalf"
+									value="#{(carrinhoCompras.subTotal / carrinhoCompras.classificaPrecoEncomenda) / carrinhoCompras.classificaPrecoEncomenda}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="" style="width: 35px;">
+								<p:commandButton
+									action="#{carrinhoDeComprasEncomendaBean.removerProdutoCarrinho(carrinhoCompras)}"
+									class="botaoAzul"
+									update=":formencomenda:dtencomenda :formencomenda:vltotali :formencomenda:vltotalf"
+									title="Remover produto" icon="ui-icon-trash">
+
+									<p:confirm header="Excluir Produto" message="Você tem certeza?"
+										icon="ui-icon-alert" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+
+						<p:confirmDialog global="true" showEffect="fade">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+
+						<div class="ui-grid-col-12">
+							<div class="right total">
+								Total: Entre
+								<h:outputText id="vltotali"
+									value="#{carrinhoDeComprasEncomendaBean.totalEncomendaInicioProdutoCarrinho()}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+								e
+								<h:outputText id="vltotalf"
+									value="#{carrinhoDeComprasEncomendaBean.totalEncomendaFimProdutoCarrinho()}">
+									<f:convertNumber type="currency" />
+								</h:outputText>
+							</div>
+						</div>
+
+						<!-- ENCOMENDA colocar comande button verifica se tem produto e passa o o tipo de carrinho para finalizar -->
+						<div class="boxMargemPadrao boxBoth">
+							<p:commandButton update="@form"
+								action="#{carrinhoDeComprasEncomendaBean.botaoFinalizarCompraEncomenda()}"
+								value="Finalizar Compra Encomenda" class="blue floatRight" />
+							<p:button outcome="/encomenda/encomendaProduto.xhtml"
+								value="Voltar" class="blue floatRight" />
+							<br />
+						</div>
+						<p:messages id="msgEncomenda" autoUpdate="false" closable="true" style="width: 100%;" />
+					</h:form>
+				</fieldset>
+			</div>
+
+			<!-- CARRINHO COMPRE GANHE -->
+			<div class="ui-grid-col-12">
+				<fieldset class="fildset">
+					<legend>Trator de Compra - Compre Ganhe</legend>
+					<h:form id="formganhe">
+						<p:dataTable
+							rendered="#{loginBean.clienteCompreGanhe.snStatus == true}"
+							id="dtganhe" var="carrinhoCompras"
+							value="#{carrinhodeComprasCompreGanheBean.listCarrinhoCompras()}"
+							paginator="true" rows="10" paginatorPosition="bottom"
+							emptyMessage="Nenhum item adicionado.">
+							<p:column headerText="Produto">
+								<h:outputText id="nomeproduto"
+									value="#{carrinhoCompras.nomeProduto}" />
+							</p:column>
+
+							<p:column headerText="Qtd de Caixas" style="width: 70px;">
+								<p:inputMask class="qtdInput" id="qtdcompra3"
+									value="#{carrinhoCompras.qtdProduto}" size="4">
+									<p:ajax event="change" process="@this"
+										update=":formganhe:dtganhe :formganhe:vltotalganhe :formganhe:msgCompreGanhe"
+										listener="#{carrinhodeComprasCompreGanheBean.adicionaProdutoNoCarrinhoCompreGanhe(carrinhoCompras)}" />
+								</p:inputMask>
+							</p:column>
+
+							<p:column headerText="Pontos Unitário"
+								style="width: 100px; text-align: center;">
+								<h:outputText id="vlunitarioganhe"
+									value="#{carrinhoCompras.valorUnitario}">
+									<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Qtd por Caixa"
+								style="width: 70px; text-align: center;">
+								<h:outputText id="qtdcaixa"
+									value="#{carrinhoCompras.qtdPorCaixa}" />
+							</p:column>
+
+							<p:column headerText="Pontos por Caixa"
+								style="width: 100px; text-align: center;">
+								<h:outputText id="vlcaixai"
+									value="#{carrinhoCompras.qtdPorCaixa * carrinhoCompras.valorUnitario}">
+									<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Sub Total (Pontos)"
+								style="width: 130px; text-align: center;">
+								<h:outputText id="vlsubtotali"
+									value="#{carrinhoCompras.subTotal}">
+									<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="" style="width: 35px;">
+								<p:commandButton
+									action="#{carrinhodeComprasCompreGanheBean.removerProdutoCarrinho(carrinhoCompras)}"
+									class="botaoAzul"
+									update=":formganhe:dtganhe :formganhe:vltotalganhe"
+									title="Remover produto" icon="ui-icon-trash">
+
+									<p:confirm header="Excluir Produto" message="Você tem certeza?"
+										icon="ui-icon-alert" />
+								</p:commandButton>
+							</p:column>
+						</p:dataTable>
+
+						<p:confirmDialog global="true" showEffect="fade">
+							<p:commandButton value="Sim" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="Não" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+
+						<div class="ui-grid-col-12">
+							<div class="right total">
+								Total Pontos:
+								<h:outputText
+									rendered="#{loginBean.clienteCompreGanhe.snStatus == true}"
+									id="vltotalganhe"
+									value="#{carrinhodeComprasCompreGanheBean.totalCompreGanheProdutoCarrinho()}">
+									<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+								</h:outputText>
+							</div>
+						</div>
+
+						<!-- COMPRE GANHE colocar comande button verifica se tem produto e passa o o tipo de carrinho para finalizar -->
+						<div class="boxMargemPadrao boxBoth">
+							<p:commandButton
+								rendered="#{loginBean.clienteCompreGanhe.snStatus == true}"
+								update="@form"
+								action="#{carrinhodeComprasCompreGanheBean.botaoFinalizarCompraCompreGanhe()}"
+								value="Finalizar Compre Ganhe" class="blue floatRight" />
+							<p:button
+								rendered="#{loginBean.clienteCompreGanhe.snStatus == true}"
+								outcome="/compreGanhe/compreGanheProduto.xhtml" value="Voltar"
+								class="blue floatRight" />
+							<br />
+						</div>
+						<p:messages id="msgCompreGanhe" autoUpdate="false" closable="true" style="width: 100%;" />
+					</h:form>
+				</fieldset>
+			</div>
+
+		</div>
+	</ui:define>
+</ui:composition>

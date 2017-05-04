@@ -1,0 +1,191 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:o="http://omnifaces.org/ui">
+	
+	<ui:define name="titulo">Minhas Compras : Pedido Compre e Ganhe</ui:define>
+
+	<f:metadata>
+		<o:viewParam name="edede" />
+		<f:event listener="#{pedidoDetalhadoBean.pedidoDetalhado}"
+			type="preRenderView" />
+	</f:metadata>
+
+	<ui:define name="conteudo">
+
+		<div id="menuAjuda" class="ui-grid-col-2">
+			<ui:include src="../elements/menuCliente.xhtml" />
+			<ui:include src="../elements/encomenda.xhtml" />
+		</div>
+
+		<!-- CONTEÚDO MEIO -->
+		<div class="ui-grid-col-8">
+			<div class="meio" id="meuCadastro">
+
+				<div class="breadcrumb ui-grid-col-12">
+					<p:commandLink value="Página Inicial" />
+					<p:commandLink value="Área do Cliente" />
+					<p:commandLink value="Minhas Compras" />
+					<span>Compre e Ganhe</span>
+				</div>
+
+				<h2 style="margin-top: 10px;">Acompanhamento do Pedido</h2>
+				<p:dataTable var="pedidoStatus" value="#{pedidoDetalhadoBean.pedidoStatusEmail()}" style="text-align: left; font-size: 12px; margin: 0 0 10px 0;"	emptyMessage="Nenhum status encotrado.">
+					<p:column headerText="Data" width="20%; text-align: center;">
+						<h:outputText value="#{pedidoStatus.dtCriacao}">
+							<f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt"/>
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Status" width="30%">
+						<h:outputText value="#{pedidoStatus.pedidoStatusEmail.nmPedidoStatusEmail}" />
+					</p:column>
+					<p:column headerText="Observação">
+						<h:outputText value="#{pedidoStatus.nmObsPedidoStatusEmailEnviados}" />
+					</p:column>
+				</p:dataTable>
+
+				<h2>Pedido Detalhado</h2>
+				<p:panelGrid columns="2"
+					style="width: 100%; text-align: left; font-size: 14px;">
+					<h:outputText value="Código Cliente:" class="bold" />
+					<h:outputText value="#{loginBean.cliente.idPessoa}" />
+
+					<h:outputText value="Nome Cliente:" class="bold" />
+					<h:outputText value="#{loginBean.cliente.nmRazaoSocial}" />
+
+					<h:outputText value="CPF/CNPJ Cliente:" class="bold" />
+					<h:outputText value="#{loginBean.cliente.nmCnpjCpf}" />
+
+					<h:outputText value="E-mail Cliente:" class="bold" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.listEmails.get(0).nmEmail}" />
+
+					<h:outputText value="Codigo Pedido:" class="bold" />
+					<h:outputText value="#{pedidoDetalhadoBean.pedido.idPedido}" />
+
+					<h:outputText value="Status Pedido:" class="bold" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.pedido.pedidoStatus.nmPedidoStatus}" />
+
+					<h:outputText value="Data Pedido:" class="bold" />
+					<h:outputText value="#{pedidoDetalhadoBean.pedido.dtCriacao}">
+						<f:convertDateTime locale="pt" pattern="dd/MM/yyyy HH:mm" />
+					</h:outputText>
+
+					<h:outputText value="Tipo Pedido:" class="bold" />
+					<h:outputText value="#{pedidoDetalhadoBean.pedido.nmTipoPedido}" />
+
+					<h:outputText value="CFOP:" class="bold" />
+					<h:outputText value="#{pedidoDetalhadoBean.pedido.cfop.nrCfop}" />
+
+					<h:outputText value="Tipo de Cobrança:" class="bold" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.pedido.tipoCobranca.nmTipoCobranca}" />
+
+					<h:outputText value="Forma Pegamento:" class="bold" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.pedido.formaPagamento.nmFormaPagamento}" />
+
+					<h:outputText value="Pontos Total Pedido:" class="bold" />
+					<h:outputText value="#{pedidoDetalhadoBean.pedido.nrTotalPedido}">
+						<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+					</h:outputText>
+
+					<h:outputText value="Pontos Desconto:" class="bold" />
+					<h:outputText value="#{pedidoDetalhadoBean.pedido.nrValorDesconto}">
+						<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+					</h:outputText>
+
+					<h:outputText value="Tipo do Frete:" class="bold" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.pedido.pedidoTipoFrete.nmPedidoTipoFrete}" />
+
+					<h:outputText value="Frete Incluso:" class="bold" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.pedido.snIncluirFrete eq false? 'Não' : 'Sim'}" />
+
+					<h:outputText value="Pontos gerado compre ganhe:" class="" />
+					<h:outputText
+						value="#{pedidoDetalhadoBean.pedido.nrPontosCompreGanhe}">
+						<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+					</h:outputText>
+
+					<h:outputText value="Download XML:" />
+					<h:outputText value="" />
+				</p:panelGrid>
+
+				<h2 style="margin-top: 10px;">Produtos do Pedido</h2>
+				<p:dataTable var="produto"
+					value="#{pedidoDetalhadoBean.listProdutos}"
+					style="text-align: left; font-size: 12px;"
+					emptyMessage="Nenhum produto encotrado.">
+					<p:column headerText="Nome Produto">
+						<h:outputText value="#{produto.produto.nmProduto}" />
+					</p:column>
+
+					<p:column headerText="QTD Por Caixas"
+						style="width: 50px; text-align: center;">
+						<h:outputText
+							value="#{produto.produto.produtoArmazenamento.qtdEspecieMedida}" />
+					</p:column>
+
+					<p:column headerText="Nº Pontos Unitario" style="width: 70px;">
+						<h:outputText value="#{produto.nrCompreGanhe}">
+							<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="QTD Comprada"
+						style="width: 70px; text-align: center;">
+						<h:outputText value="#{produto.nrQuantidadeProduto}" />
+					</p:column>
+
+					<p:column headerText="Sub Total Pontos" style="width: 100px;">
+						<h:outputText
+							value="#{produto.nrCompreGanhe * produto.nrQuantidadeProduto}">
+							<f:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+						</h:outputText>
+					</p:column>
+				</p:dataTable>
+
+				<h2 style="margin-top: 10px;">Transportadora Despacho</h2>
+				<p:panelGrid columns="2"
+					style="width: 100%; text-align: left; font-size: 14px;">
+					<h:outputText value="Codigo Transportadora:" class="bold" />
+					<h:outputText value="" />
+
+					<h:outputText value="Nome Transportadora:" class="bold" />
+					<h:outputText value="" />
+
+					<h:outputText value="Pagador Frete:" class="bold" />
+					<h:outputText value="" />
+
+					<h:outputText value="Valor Frete:" class="bold" />
+					<h:outputText value="" />
+				</p:panelGrid>
+
+				<h2 style="margin-top: 10px;">Transportadora Redespacho</h2>
+				<p:panelGrid columns="2"
+					style="width: 100%; text-align: left; font-size: 14px;">
+					<h:outputText value="Codigo Transportadora:" class="bold" />
+					<h:outputText value="" />
+
+					<h:outputText value="Nome Transportadora:" class="bold" />
+					<h:outputText value="" />
+
+					<h:outputText value="Pagador Frete:" class="bold" />
+					<h:outputText value="" />
+
+					<h:outputText value="Valor Frete:" class="bold" />
+					<h:outputText value="" />
+				</p:panelGrid>
+
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

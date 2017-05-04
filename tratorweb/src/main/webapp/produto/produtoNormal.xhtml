@@ -1,0 +1,206 @@
+<ui:composition template="../promocao/promocaoIndex.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
+	
+	<ui:define name="titulo">Produtos</ui:define>
+
+	<ui:define name="conteudo">
+
+<!-- MENU ESQUERDA -->
+<div id="menuLeft" class="ui-grid-col-2">
+
+	<h:form id="frmProduto">
+		<ul style="float: left;">
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTodosProdutos()}" value="Todos" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('acaricida')}"
+					value="Acaricidas" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('adjuvante')}"
+					value="Adjuvantes" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('espalhante')}"
+					value="Espalhantes" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('fungicida')}"
+					value="Fungicidas" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('herbicida')}"
+					value="Herbicidas" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #f6701f;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('inseticida')}"
+					value="Inseticidas" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #2fb637;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('epi')}" value="E.P.I's" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #2fb637;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('crescimento')}"
+					value="Reguladores de Cresc." />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #00fff8;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('acessorio')}"
+					value="Acessorios" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #00fff8;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('pulverizadore')}"
+					value="Pulverizadores" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #00fff8;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('especia')}"
+					value="Fertilizantes Especiais" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #00fff8;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('foliare')}"
+					value="Fertilizantes Foliares" />
+			</li>
+
+			<li>
+				<div class="bar" style="background: #00fff8;"></div> <p:commandLink
+					update="dataGridProduto"
+					action="#{produtoIndexBean.setTipoProduto('organico')}"
+					value="Fertilizantes Orgânicos" />
+			</li>
+		</ul>
+	</h:form>
+	
+	<ui:include src="../elements/encomenda.xhtml" />
+	
+</div>
+
+
+<!-- CONTEÚDO ESQUERDA -->
+<div class="ui-grid-col-8">
+	<div class="meio">
+
+		<div class="breadcrumb ui-grid-col-12">
+			<p:commandLink value="Página Inicial" />						
+			<span>Produtos</span>
+		</div>
+
+		<br class="clear" />
+
+		<div id="filter" class="ui-grid-col-12 clear">
+			<h:form id="frmFiltro">
+				<div class="ui-grid-col-6">
+					<div class="ui-grid-col-12">
+						<div class="label">Nome do Produto</div>
+					</div>
+					<p:inputText id="nomeProduto" placeholder="Filtrar produtos"
+						value="#{produtoIndexBean.filtroCampanhaProduto.descricao}" />
+				</div>
+	
+	
+				<div class="ui-grid-col-5">
+					<div class="ui-grid-col-12">
+						<div class="label">Ordenação</div>
+					</div>
+					<p:selectOneMenu id="odenafiltro" style="width: 100%"
+						value="#{produtoIndexBean.filtroCampanhaProduto.ordenacao}">
+						<f:selectItem itemLabel="Maior Valor" itemValue="1" />
+						<f:selectItem itemLabel="Menor Valor" itemValue="2" />
+						<f:selectItem itemLabel="Crescente A-Z" itemValue="3" />
+						<f:selectItem itemLabel="Decrescente Z-A" itemValue="4" />
+					</p:selectOneMenu>
+				</div>
+	
+				<div class="ui-grid-col-1">
+					<p:commandButton icon="ui-icon-search" class="blue iconBranco"
+						update="@form dataGridProduto" />
+				</div>
+			</h:form>
+		</div>
+
+		<br class="clear" />
+
+		<div class="produtos ui-grid-col-12">
+
+			<p:dataGrid var="item" value="#{produtoIndexBean.campanhaProdutoLazy}" lazy="true"
+				columns="3" rows="12" paginator="true" paginatorPosition="both"
+				id="dataGridProduto" emptyMessage="Nenhum produto encontrado.">
+
+				<div class="pdt">
+
+					<!-- aqui listagem produtos -->
+
+					<p:link
+						outcome="/produto/produtoDetalhado.xhtml?id=#{item.idProdutoCampanha}">
+						<p:graphicImage url="#{promocaoIndexBean.buscarImagemProduto(item.produto)}" style="width: 150px;" />
+						<p:graphicImage rendered="#{item.campanha.snPromocao == true}" url="#{item.campanha.nmLinkSelo}" class="promocao" />						
+					</p:link>
+
+					<p:link class="name"
+						outcome="/produto/produtoDetalhado.xhtml?id=#{item.idProdutoCampanha}"
+						value="#{item.produto.nmProduto}" />
+
+					<p:link class="price"
+						outcome="/produto/produtoDetalhado.xhtml?id=#{item.idProdutoCampanha}">						
+						<h:outputText value="#{item.vlPrecoCampanha}">
+							<f:convertNumber type="currency" />
+						</h:outputText>
+					</p:link>
+
+					<p style="font-size: 12px;">ICMS Incluso</p>
+					<p class="pagAnte" style="#{item.snPagamentoAntecipado eq 0? 'opacity: 0;' : ''}">Pagamento Antecipado</p>
+					<p style="font-size: 12px; color: #F00; #{item.snUltimasUnidades eq 0? 'opacity: 0;' : ''}">Últimas	Unidades</p>
+
+					<p:link outcome="/produto/produtoDetalhado.xhtml?id=#{item.idProdutoCampanha}" value="COMPRAR" class="comprar"/>					
+				</div>
+
+			</p:dataGrid>
+		</div>
+	</div>
+</div>
+	</ui:define>
+</ui:composition>
